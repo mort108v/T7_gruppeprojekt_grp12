@@ -192,8 +192,9 @@
                 <img src="logo/mont_500x500.svg" alt="Logo">
             </div>
             <div class="topmenu_buttons">
-            <button class="sign_up, valgt">Sign Up</button>
-            <button class="sign_up">Sign In</button>
+                <button class="sign_up, valgt">Sign Up</button>
+                <button class="sign_up">Sign In</button>
+                <button class="js-hash-change">Change hash</button>
             </div>
         </header>
     </section>
@@ -223,6 +224,15 @@
         let json;
         let valgt;
         const popup = document.querySelector("#popup");
+
+        // Website url parameters
+
+        let websiteURL = `${location.protocol}//${location.host}${location.pathname}`;
+
+        const queryString = window.location.search;
+
+        let parameters = new URLSearchParams(queryString);
+
         document.addEventListener("DOMContentLoaded", loadJSON);
 
         let temp = document.querySelector("template");
@@ -262,10 +272,26 @@
 
                     listPointer.appendChild(klon);
                 }
-            })
+            });
+
+            if (parameters.get("id") === null) {
+                console.log("Vis side uden popup!")
+            } else {
+                let idParam = parameters.get("id");
+
+                let thisCoin = json.feed.entry.find(x => x.gsx$dataid.$t === idParam);
+                console.log(thisCoin)
+                visDetaljer(thisCoin);
+            }
         }
 
-        document.querySelector("#luk").addEventListener("click", () => popup.style.display = "none");
+        document.querySelector("#luk").addEventListener("click", () => {
+            parameters.delete("id");
+
+            history.pushState(null, null, websiteURL);
+
+            popup.style.display = "none";
+        });
 
         function visDetaljer(coin) {
             console.log(coin);
@@ -284,6 +310,11 @@
             popup.querySelector(".mc").textContent = " $ " + coin.gsx$dataquoteusdmarketcap.$t;
             popup.querySelector(".volume").textContent = " $ " + coin.gsx$dataquoteusdvolume24h.$t;
             popup.querySelector(".change").textContent = " % " + coin.gsx$dataquoteusdpercentchange24h.$t;
+
+            parameters.set("id", coin.gsx$dataid.$t);
+            console.log(coin.gsx$dataid.$t)
+
+            history.pushState(null, null, "?" + parameters.toString());
 
             popup.style.display = "block";
         }
