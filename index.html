@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background-color: #e6e6e6;
+        }
+
+        .coins img {
+            max-width: 100%;
+            display: block;
+            width: 32px;
+            height: 32px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 30px;
+        }
+
+        .data-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-gap: 40px;
+            padding: 40px;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .coin {
+            display: flex;
+            flex-direction: column;
+
+            text-align: center;
+            background-color: #fff;
+            border-radius: 2px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
+        .name {
+            font-size: 2rem;
+            font-weight: 800;
+            font-family: sans-serif;
+        }
+
+        .rank,
+        .mc,
+        .price,
+        .volume,
+        .cs,
+        .change {
+            font-size: 1.2rem;
+            font-family: sans-serif;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <section id="popup">
+        <article>
+            <div id="luk">
+                <button> x </button>
+            </div>
+            <img src="" alt="Coin">
+            <div>
+                <h2></h2>
+                <p><b>Rank: </b> <span class="rank"></span></p>
+                <p><b>Marketcap: </b> <span class="mc"></span></p>
+                <p><b>Price: </b> <span class="value"></span></p>
+                <p><b>Volume (24h): </b> <span class="volume"></span></p>
+                <p><b>Circulatin Supply: </b> <span class="cs"></span></p>
+                <p><b>Change (24h): </b> <span class="change"></span></p>
+            </div>
+        </article>
+    </section>
+
+    <section id="splash">
+        <header>
+            <div class="mont_logo"></div>
+            <div class="sign_up"></div>
+            <div class="sign_in"></div>
+            <div class="empty_space"></div>
+        </header>
+    </section>
+
+    <section id="sort_coins">
+        <button class="filter valgt" data-coin="all_coins">All Coins</button>
+        <button class="filter" data-coin="rank">Coin Rank</button>
+        <button class="filter" data-coin="name">Coin Name</button>
+        <button class="filter" data-coin="value">Coin Value</button>
+    </section>
+
+    <section class="data-container">
+    </section>
+
+    <template>
+        <article class="coins">
+            <p class="rank"></p>
+            <h3></h3>
+            <img class="coin_logo" src="" alt="Coin Logo">
+            <p class="value"></p>
+        </article>
+    </template>
+
+
+    <script>
+        let coin;
+        let json;
+        let valgt;
+        const popup = document.querySelector("#popup");
+        document.addEventListener("DOMContentLoaded", loadJSON);
+
+        let temp = document.querySelector("template");
+
+        let filter = "all_coins";
+        const link = "https://spreadsheets.google.com/feeds/list/18iieVrq6h4GAoX0n6T6fiDPvUiCsxPtFpQCkQrkeE5Y/1/public/full?alt=json";
+
+        async function loadJSON() {
+            const respons = await fetch(link);
+            json = await respons.json();
+            addEventListenerToButtons();
+            vis();
+        }
+
+        function vis() {
+
+            const templatePointer = document.querySelector("template");
+            let listPointer = document.querySelector(".data-container");
+            listPointer.innerHTML = " ";
+
+            //løb igennem array "coins"
+            json.feed.entry.forEach(coin => {
+                if (filter == "all_coins" || filter == coin.gsx$all_coins.$t.toLowerCase()) {
+                    console.log(filter);
+
+                    const klon = temp.cloneNode(true).content;
+
+                    klon.querySelector("rank").textContent = coin.gsx$datacmcrank.$t;
+                    klon.querySelector("h3").textContent = coin.gsx$dataname.$t;
+                    klon.querySelector("value").textContent += "$"
+                    coin.gsx$dataquoteusdprice.$t;
+                    /*fix billede her*/
+                    klon.querySelector("coin_logo").src = coin.gsx$billede.$t;
+                    klon.querySelector("article").addEventListener("click", () => visDetaljer(coin));
+
+                    listPointer.appendChild(klon);
+                }
+            })
+        }
+
+        document.querySelector("#luk").addEventListener("click", () => popup.style.display = "none");
+
+        function visDetaljer(coin) {
+            console.log(coin);
+
+            popup.style.display = "block";
+
+            popup.querySelector("rank").textContent = coin.gsx$datacmcrank.$t;
+            popup.querySelector("h3").textContent = coin.gsx$dataname.$t;
+
+            popup.querySelector("Price").textContent += "$"
+                    coin.gsx$dataquoteusdprice.$t;
+            /*fix billede her*/
+            popup.querySelector("coin_logo").src = coin.gsx$billede.$t;
+            popup.querySelector("value").textContent += "$"
+                    coin.gsx$dataquoteusdprice.$t;
+            popup.querySelector(".cs").textContent = coin.gsx$alder.$t;
+            popup.querySelector(".mc").textContent = coin.gsx$religion.$t;
+            popup.querySelector(".volume").textContent = coin.gsx$kæledyr.$t;
+            popup.querySelector(".change").textContent = coin.gsx$job.$t;
+
+            popup.style.display = "block";
+        }
+
+        function addEventListenerToButtons() {
+            document.querySelectorAll(".filter").forEach((btn) => {
+                btn.addEventListener("click", filterBTNs);
+            });
+        }
+
+        function filterBTNs() {
+            filter = this.dataset.coin;
+            document.querySelector("h1").textContent = this.textContent;
+            document.querySelectorAll(".filter").forEach((btn) => {
+                btn.classList.remove("valgt");
+            })
+            this.classList.add("valgt");
+            vis();
+        }
+        loadJSON();
+
+    </script>
+</body>
+
+</html>
