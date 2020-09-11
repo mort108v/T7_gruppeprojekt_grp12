@@ -17,8 +17,25 @@
             background-color: #e6e6e6;
         }
 
-        #splash .mont_logo img {
-            width: 10vw
+        header {
+            padding: 15px;
+            margin: 0 auto;
+        }
+
+        #splash {
+            margin: 0 auto;
+            width: 100vw;
+            height: 50vh;
+            background-color: #089296;
+            background-size: cover;
+            background-image: url();
+            padding-bottom: 20px;
+        }
+
+        #splash img {
+            position: relative;
+            width: 10vw;
+            padding: 20px;
         }
 
         .data-container img {
@@ -33,9 +50,9 @@
 
         .data-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            grid-gap: 40px;
-            padding: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-gap: 20px;
+            padding: 20px;
             max-width: 1440px;
             margin: 0 auto;
         }
@@ -43,7 +60,6 @@
         .coin {
             display: flex;
             flex-direction: column;
-
             text-align: center;
             background-color: #fff;
             border-radius: 2px;
@@ -66,19 +82,28 @@
             font-family: sans-serif;
         }
 
+        .topmenu_buttons {
+            justify-content: flex-end;
+            align-content: flex-end;
+        }
+
         button {
-            background-color: #fff;
+            background-color: #089296;
             border-radius: 5px;
             padding: 5px;
+            color: #fff;
+            border: 2px;
+            border-color: #fff;
         }
 
         button:hover {
-            background-color: #f1f;
-
+            background-color: #fff;
+            color: #089296;
         }
 
         .valgt {
-            background-color: #0f0;
+            background-color: #fff;
+            color: #089296;
         }
 
         #popup {
@@ -164,19 +189,20 @@
     <section id="splash">
         <header>
             <div class="mont_logo">
-                <img src="logo/mont_logo_text_v1_0.png" alt="Logo">
+                <img src="logo/mont_500x500.svg" alt="Logo">
             </div>
-            <div class="sign_up">Sign Up</div>
-            <div class="sign_in">Sign In</div>
-            <div class="empty_space">Space</div>
+            <div class="topmenu_buttons">
+            <button class="sign_up, valgt">Sign Up</button>
+            <button class="sign_up">Sign In</button>
+            </div>
         </header>
     </section>
 
     <section id="sort_coins">
-        <button class="filter valgt" data-coin="all_coins">All Coins</button>
-        <button class="filter" data-coin="rank">Coin Rank</button>
-        <button class="filter" data-coin="name">Coin Name</button>
-        <button class="filter" data-coin="value">Coin Value</button>
+        <h4>Click button to sort the output</h4>
+        <button class="filter valgt" data-coin="all_coins">Coins by Rank</button>
+        <button class="filter" data-coin="name">Coins by Name</button>
+        <button class="filter" data-coin="value">Coins by Value</button>
     </section>
 
     <section class="data-container">
@@ -245,7 +271,7 @@
             console.log(coin);
 
             let imageUrl = "https://s2.coinmarketcap.com/static/img/coins/128x128/";
-/*Get Data = https://spreadsheets.google.com/feeds/list/18iieVrq6h4GAoX0n6T6fiDPvUiCsxPtFpQCkQrkeE5Y/1/public/full/cokwr*/
+            /*Get Data = https://spreadsheets.google.com/feeds/list/18iieVrq6h4GAoX0n6T6fiDPvUiCsxPtFpQCkQrkeE5Y/1/public/full/cokwr*/
 
             popup.style.display = "block";
 
@@ -253,7 +279,7 @@
             popup.querySelector("h3").textContent = coin.gsx$dataname.$t;
             popup.querySelector(".coin_logo").src = `${imageUrl}${coin.gsx$dataid.$t}.png`;
             popup.querySelector(".value").textContent = " $ " +
-            coin.gsx$dataquoteusdprice.$t;
+                coin.gsx$dataquoteusdprice.$t;
             popup.querySelector(".cs").textContent = " No. " + coin.gsx$datacirculatingsupply.$t;
             popup.querySelector(".mc").textContent = " $ " + coin.gsx$dataquoteusdmarketcap.$t;
             popup.querySelector(".volume").textContent = " $ " + coin.gsx$dataquoteusdvolume24h.$t;
