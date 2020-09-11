@@ -21,7 +21,7 @@
             width: 10vw
         }
 
-        .coins img {
+        .data-container img {
             max-width: 100%;
             display: block;
             width: 32px;
@@ -50,7 +50,7 @@
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
         }
 
-        .name {
+        h3 {
             font-size: 2rem;
             font-weight: 800;
             font-family: sans-serif;
@@ -67,13 +67,18 @@
         }
 
         button {
-            background-color: aquamarine;
+            background-color: #fff;
             border-radius: 5px;
             padding: 5px;
         }
 
+        button:hover {
+            background-color: #f1f;
+
+        }
+
         .valgt {
-            background-color: blue;
+            background-color: #0f0;
         }
 
         #popup {
@@ -97,7 +102,7 @@
         }
 
         #popup span {
-            background-color: aqua;
+            background-color: lightgray;
         }
 
         #luk button {
@@ -120,6 +125,7 @@
             display: flex;
             width: 50%;
             margin-left: 0em;
+            padding: 40px;
         }
 
         span {
@@ -145,12 +151,12 @@
             <img class="coin_logo" src="" alt="Coin">
             <div>
                 <h3></h3>
-                <p><b>Rank: </b> <span class="rank"></span></p>
-                <p><b>Marketcap: </b> <span class="mc"></span></p>
-                <p><b>Value: </b> <span class="value"></span></p>
-                <p><b>Volume (24h): </b> <span class="volume"></span></p>
-                <p><b>Circulating Supply: </b> <span class="cs"></span></p>
-                <p><b>Change (24h): </b> <span class="change"></span></p>
+                <p>Rank: <span class="rank"></span></p>
+                <p>Marketcap: <span class="mc"></span></p>
+                <p>Value: <span class="value"></span></p>
+                <p>Volume (24h): <span class="volume"></span></p>
+                <p>Circulating Supply: <span class="cs"></span></p>
+                <p>Change (24h): <span class="change"></span></p>
             </div>
         </article>
     </section>
@@ -177,7 +183,7 @@
     </section>
 
     <template>
-        <article class="coins">
+        <article class="coin">
             <p>Rank: <span class="rank"></span></p>
             <h3></h3>
             <img class="coin_logo" src="" alt="Coin Logo">
@@ -221,9 +227,9 @@
 
                     const klon = temp.cloneNode(true).content;
 
-                    klon.querySelector(".rank").textContent = coin.gsx$datacmcrank.$t;
+                    klon.querySelector(".rank").textContent = " No. " + coin.gsx$datacmcrank.$t;
                     klon.querySelector("h3").textContent = coin.gsx$dataname.$t;
-                    klon.querySelector(".value").textContent += "$" + coin.gsx$dataquoteusdprice.$t;
+                    klon.querySelector(".value").textContent = " $ " + coin.gsx$dataquoteusdprice.$t;
                     klon.querySelector(".coin_logo").src = `${imageUrl}${coin.gsx$dataid.$t}.png`;
 
                     klon.querySelector("article").addEventListener("click", () => visDetaljer(coin));
@@ -238,20 +244,20 @@
         function visDetaljer(coin) {
             console.log(coin);
 
-            let imageUrl = "https://s2.coinmarketcap.com/static/img/coins/64x64/";
+            let imageUrl = "https://s2.coinmarketcap.com/static/img/coins/128x128/";
 /*Get Data = https://spreadsheets.google.com/feeds/list/18iieVrq6h4GAoX0n6T6fiDPvUiCsxPtFpQCkQrkeE5Y/1/public/full/cokwr*/
 
             popup.style.display = "block";
 
-            popup.querySelector(".rank").textContent = coin.gsx$datacmcrank.$t;
+            popup.querySelector(".rank").textContent = " No. " + coin.gsx$datacmcrank.$t;
             popup.querySelector("h3").textContent = coin.gsx$dataname.$t;
             popup.querySelector(".coin_logo").src = `${imageUrl}${coin.gsx$dataid.$t}.png`;
-            popup.querySelector(".value").textContent += "$"
+            popup.querySelector(".value").textContent = " $ " +
             coin.gsx$dataquoteusdprice.$t;
-            popup.querySelector(".cs").textContent = coin.gsx$datacirculatingsupply.$t;
-            popup.querySelector(".mc").textContent = coin.dataquoteusdmarketcap.$t;
-            popup.querySelector(".volume").textContent = coin.gsx$dataquoteusdvolume24h.$t;
-            popup.querySelector(".change").textContent = coin.gsx$dataquoteusdpercentchange24h.$t;
+            popup.querySelector(".cs").textContent = " No. " + coin.gsx$datacirculatingsupply.$t;
+            popup.querySelector(".mc").textContent = " $ " + coin.gsx$dataquoteusdmarketcap.$t;
+            popup.querySelector(".volume").textContent = " $ " + coin.gsx$dataquoteusdvolume24h.$t;
+            popup.querySelector(".change").textContent = " % " + coin.gsx$dataquoteusdpercentchange24h.$t;
 
             popup.style.display = "block";
         }
