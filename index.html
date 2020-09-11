@@ -17,6 +17,10 @@
             background-color: #e6e6e6;
         }
 
+        #splash .mont_logo img {
+            width: 10vw
+        }
+
         .coins img {
             max-width: 100%;
             display: block;
@@ -62,6 +66,16 @@
             font-family: sans-serif;
         }
 
+        #popup {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, .8);
+            overflow: scroll;
+            display: none;
+        }
     </style>
 </head>
 
@@ -72,7 +86,7 @@
             <div id="luk">
                 <button> x </button>
             </div>
-            <img src="" alt="Coin">
+            <img class="coin_logo" src="" alt="Coin">
             <div>
                 <h2></h2>
                 <p><b>Rank: </b> <span class="rank"></span></p>
@@ -87,10 +101,12 @@
 
     <section id="splash">
         <header>
-            <div class="mont_logo"></div>
-            <div class="sign_up"></div>
-            <div class="sign_in"></div>
-            <div class="empty_space"></div>
+            <div class="mont_logo">
+                <img src="logo/mont_logo_text_v1_0.png" alt="Logo">
+            </div>
+            <div class="sign_up">Sign Up</div>
+            <div class="sign_in">Sign In</div>
+            <div class="empty_space">Space</div>
         </header>
     </section>
 
@@ -106,10 +122,10 @@
 
     <template>
         <article class="coins">
-            <p class="rank"></p>
+            <p>Rank: <span class="rank"></span></p>
             <h3></h3>
             <img class="coin_logo" src="" alt="Coin Logo">
-            <p class="value"></p>
+            <p>Value: <span class="value"></span></p>
         </article>
     </template>
 
@@ -141,17 +157,19 @@
 
             //løb igennem array "coins"
             json.feed.entry.forEach(coin => {
+
+                let imageUrl = "https://s2.coinmarketcap.com/static/img/coins/64x64/";
+
                 if (filter == "all_coins" || filter == coin.gsx$all_coins.$t.toLowerCase()) {
                     console.log(filter);
 
                     const klon = temp.cloneNode(true).content;
 
-                    klon.querySelector("rank").textContent = coin.gsx$datacmcrank.$t;
+                    klon.querySelector(".rank").textContent = coin.gsx$datacmcrank.$t;
                     klon.querySelector("h3").textContent = coin.gsx$dataname.$t;
-                    klon.querySelector("value").textContent += "$"
-                    coin.gsx$dataquoteusdprice.$t;
-                    /*fix billede her*/
-                    klon.querySelector("coin_logo").src = coin.gsx$billede.$t;
+                    klon.querySelector(".value").textContent += "$" + coin.gsx$dataquoteusdprice.$t;
+                    klon.querySelector(".coin_logo").src = `${imageUrl}${coin.gsx$dataid.$t}.png`;
+
                     klon.querySelector("article").addEventListener("click", () => visDetaljer(coin));
 
                     listPointer.appendChild(klon);
@@ -170,11 +188,11 @@
             popup.querySelector("h3").textContent = coin.gsx$dataname.$t;
 
             popup.querySelector("Price").textContent += "$"
-                    coin.gsx$dataquoteusdprice.$t;
+            coin.gsx$dataquoteusdprice.$t;
             /*fix billede her*/
             popup.querySelector("coin_logo").src = coin.gsx$billede.$t;
             popup.querySelector("value").textContent += "$"
-                    coin.gsx$dataquoteusdprice.$t;
+            coin.gsx$dataquoteusdprice.$t;
             popup.querySelector(".cs").textContent = coin.gsx$alder.$t;
             popup.querySelector(".mc").textContent = coin.gsx$religion.$t;
             popup.querySelector(".volume").textContent = coin.gsx$kæledyr.$t;
@@ -199,8 +217,5 @@
             vis();
         }
         loadJSON();
-
     </script>
-</body>
-
-</html>
+</body></html>
