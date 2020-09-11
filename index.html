@@ -66,6 +66,16 @@
             font-family: sans-serif;
         }
 
+        button {
+            background-color: aquamarine;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .valgt {
+            background-color: blue;
+        }
+
         #popup {
             position: fixed;
             left: 0;
@@ -75,6 +85,52 @@
             background-color: rgba(0, 0, 0, .8);
             overflow: scroll;
             display: none;
+        }
+
+        #popup article {
+            display: flex;
+            width: 80vw;
+            margin: 4rem auto;
+            border-radius: 25px;
+            padding: 15px;
+            background-color: aliceblue;
+        }
+
+        #popup span {
+            background-color: aqua;
+        }
+
+        #luk button {
+            position: fixed;
+            top: 7.4vh;
+            right: 7.2vw;
+            background-color: white;
+            color: black;
+            text-align: center;
+            text-decoration: none;
+            border: 2;
+            display: inline-block;
+            font-size: 20px;
+            padding: 5px 10px;
+            border-radius: 30%;
+            cursor: pointer;
+        }
+
+        #popup img {
+            display: flex;
+            width: 50%;
+            margin-left: 0em;
+        }
+
+        span {
+            font-weight: normal;
+        }
+
+        #popup p {
+            display: flex;
+            width: 35vw;
+            font-family: fantasy;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -88,12 +144,12 @@
             </div>
             <img class="coin_logo" src="" alt="Coin">
             <div>
-                <h2></h2>
+                <h3></h3>
                 <p><b>Rank: </b> <span class="rank"></span></p>
                 <p><b>Marketcap: </b> <span class="mc"></span></p>
-                <p><b>Price: </b> <span class="value"></span></p>
+                <p><b>Value: </b> <span class="value"></span></p>
                 <p><b>Volume (24h): </b> <span class="volume"></span></p>
-                <p><b>Circulatin Supply: </b> <span class="cs"></span></p>
+                <p><b>Circulating Supply: </b> <span class="cs"></span></p>
                 <p><b>Change (24h): </b> <span class="change"></span></p>
             </div>
         </article>
@@ -182,21 +238,20 @@
         function visDetaljer(coin) {
             console.log(coin);
 
+            let imageUrl = "https://s2.coinmarketcap.com/static/img/coins/64x64/";
+/*Get Data = https://spreadsheets.google.com/feeds/list/18iieVrq6h4GAoX0n6T6fiDPvUiCsxPtFpQCkQrkeE5Y/1/public/full/cokwr*/
+
             popup.style.display = "block";
 
-            popup.querySelector("rank").textContent = coin.gsx$datacmcrank.$t;
+            popup.querySelector(".rank").textContent = coin.gsx$datacmcrank.$t;
             popup.querySelector("h3").textContent = coin.gsx$dataname.$t;
-
-            popup.querySelector("Price").textContent += "$"
+            popup.querySelector(".coin_logo").src = `${imageUrl}${coin.gsx$dataid.$t}.png`;
+            popup.querySelector(".value").textContent += "$"
             coin.gsx$dataquoteusdprice.$t;
-            /*fix billede her*/
-            popup.querySelector("coin_logo").src = coin.gsx$billede.$t;
-            popup.querySelector("value").textContent += "$"
-            coin.gsx$dataquoteusdprice.$t;
-            popup.querySelector(".cs").textContent = coin.gsx$alder.$t;
-            popup.querySelector(".mc").textContent = coin.gsx$religion.$t;
-            popup.querySelector(".volume").textContent = coin.gsx$kæledyr.$t;
-            popup.querySelector(".change").textContent = coin.gsx$job.$t;
+            popup.querySelector(".cs").textContent = coin.gsx$datacirculatingsupply.$t;
+            popup.querySelector(".mc").textContent = coin.dataquoteusdmarketcap.$t;
+            popup.querySelector(".volume").textContent = coin.gsx$dataquoteusdvolume24h.$t;
+            popup.querySelector(".change").textContent = coin.gsx$dataquoteusdpercentchange24h.$t;
 
             popup.style.display = "block";
         }
