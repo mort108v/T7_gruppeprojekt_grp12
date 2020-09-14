@@ -18,6 +18,14 @@ button {
     cursor: pointer;
 }
 
+img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+}
+
+/* */
+
 #splash {
     margin: 0 auto;
     width: 100vw;
@@ -69,12 +77,6 @@ button {
     cursor: pointer;
 }
 
-h3 {
-    font-size: 2rem;
-    font-weight: 800;
-    font-family: sans-serif;
-}
-
 .rank,
 .mc,
 .price,
@@ -82,7 +84,6 @@ h3 {
 .cs,
 .change {
     font-size: 1.2rem;
-    font-family: sans-serif;
 }
 
 .topmenu_buttons {
@@ -146,18 +147,11 @@ button:hover {
 
 #popup img {
     display: flex;
-    width: 50%;
-    margin-left: 0em;
     padding: 40px;
-}
-
-span {
-    font-weight: normal;
 }
 
 #popup p {
     display: flex;
     width: 35vw;
-    font-family: fantasy;
     font-weight: bold;
 }

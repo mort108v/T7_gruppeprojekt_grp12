@@ -53,7 +53,6 @@ function vis() {
 
         /*Set condition to lowercase if "All Coins" filter is chosen*/
         if (filter == "all_coins" || filter == coin.gsx$all_coins.$t.toLowerCase()) {
-            console.log(filter);
 
             /*Set Constant Klon to use in Template*/
             const klon = temp.cloneNode(true).content;
@@ -127,7 +126,7 @@ function addEventListenerToButtons() {
 /*Function to . . . . . Er der ik' noget off her???*/
 function filterBTNs() {
     filter = this.dataset.coin;
-    document.querySelector("h1").textContent = this.textContent;
+//    document.querySelector("h1").textContent = this.textContent;
     document.querySelectorAll(".filter").forEach((btn) => {
         btn.classList.remove("valgt");
     });
