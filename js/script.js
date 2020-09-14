@@ -43,7 +43,7 @@ function vis() {
     /*Set variable = Listpointer to = Main page list DataContainer*/
     let listPointer = document.querySelector(".data-container");
     /*Clear pointer inner HTML*/
-    listPointer.innerHTML = " ";
+    listPointer.innerHTML = "";
 
     //Run through array of coins
     json.feed.entry.forEach(coin => {
@@ -58,10 +58,10 @@ function vis() {
             const klon = temp.cloneNode(true).content;
 
             /*Klon used to input data from JSON into given Classes*/
-            klon.querySelector(".rank").textContent = " No. " + coin.gsx$datacmcrank.$t;
+            klon.querySelector(".rank").textContent = coin.gsx$datacmcrank.$t;
+            klon.querySelector(".coin_logo").src = `${imageUrl}${coin.gsx$dataid.$t}.png`;            klon.querySelector(".coin_logo").alt = coin.gsx$dataname.$t;
             klon.querySelector("h3").textContent = coin.gsx$dataname.$t;
-            klon.querySelector(".value").textContent = " $ " + coin.gsx$dataquoteusdprice.$t;
-            klon.querySelector(".coin_logo").src = `${imageUrl}${coin.gsx$dataid.$t}.png`;
+            klon.querySelector(".value").textContent = "$" + coin.gsx$dataquoteusdprice.$t;
 
             /*Listen for Click and send to detailed info article function*/
             klon.querySelector("article").addEventListener("click", () => visDetaljer(coin));
@@ -98,7 +98,7 @@ function visDetaljer(coin) {
 
     popup.style.display = "block";
 
-    popup.querySelector(".rank").textContent = " " + coin.gsx$datacmcrank.$t;
+    popup.querySelector(".rank").textContent = " " + coin.gsx$datacmcrank.$t.replace('No.', '');
     popup.querySelector("h3").textContent = coin.gsx$dataname.$t;
     popup.querySelector(".coin_logo").src = `${imageUrl}${coin.gsx$dataid.$t}.png`;
     popup.querySelector(".value").textContent = " $ " +
@@ -126,7 +126,7 @@ function addEventListenerToButtons() {
 /*Function to . . . . . Er der ik' noget off her???*/
 function filterBTNs() {
     filter = this.dataset.coin;
-//    document.querySelector("h1").textContent = this.textContent;
+    //    document.querySelector("h1").textContent = this.textContent;
     document.querySelectorAll(".filter").forEach((btn) => {
         btn.classList.remove("valgt");
     });

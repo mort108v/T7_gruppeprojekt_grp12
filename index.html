@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Mont</title>
     <link rel="stylesheet" href="css/stylesheet.css">
 </head>
 
@@ -23,7 +23,6 @@
     </section>
 
     <section id="sort_coins">
-        <h4>Click button to sort the output</h4>
         <button class="filter valgt" data-coin="all_coins">Coins by Rank</button>
         <button class="filter" data-coin="name">Coins by Name</button>
         <button class="filter" data-coin="value">Coins by Value</button>
@@ -39,7 +38,7 @@
             <img class="coin_logo" src="" alt="Coin">
             <div>
                 <h3></h3>
-                <p>Rank: <span class="rank"></span></p>
+                <p class="rank"><span class="rank"></span></p>
                 <p>Marketcap: <span class="mc"></span></p>
                 <p>Value: <span class="value"></span></p>
                 <p>Volume (24h): <span class="volume"></span></p>
@@ -51,10 +50,12 @@
 
     <template>
         <article class="coin">
-            <p>Rank: <span class="rank"></span></p>
-            <h3></h3>
-            <img class="coin_logo" src="" alt="Coin Logo">
-            <p>Value: <span class="value"></span></p>
+            <p class="rank"></p>
+            <div class="title-logo-container">
+                <img class="coin_logo" src="" alt="">
+                <h3></h3>
+            </div>
+            <p class="value"></p>
         </article>
     </template>
 
