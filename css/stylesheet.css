@@ -7,9 +7,9 @@
 
 body {
     margin: 0;
-    background-color: #e6e6e6;
     font-family: 'Lato', sans-serif;
     font-weight: 400;
+    background-color: #fff;
 }
 
 header {
@@ -17,14 +17,19 @@ header {
     margin: 0 auto;
 }
 
+section {
+    padding: 20px 0;
+}
+
 button {
     cursor: pointer;
     font-family: 'Lato', sans-serif;
     font-weight: 400;
+    font-size: 14px;
     text-transform: uppercase;
     background-color: #089296;
     border-radius: 5px;
-    padding: 5px;
+    padding: 10px 40px;
     color: #fff;
     border: 2px solid #fff;
     border-color: #fff;
@@ -66,6 +71,10 @@ p {
     color: #202124;
 }
 
+.green-text {
+    color: #159296;
+}
+
 #splash {
     margin: 0 auto;
     width: 100vw;
@@ -78,7 +87,7 @@ p {
 
 #splash img {
     position: relative;
-    width: 10vw;
+    width: 100px;
     padding: 20px;
 }
 
@@ -101,6 +110,10 @@ p {
     padding: 0 20px;
 }
 
+.coins-list-headline {
+    margin-bottom: 20px;
+}
+
 .coin {
     display: flex;
     flex-direction: row;
@@ -109,6 +122,7 @@ p {
     border-radius: 4px;
     cursor: pointer;
     padding: 15px;
+    border: 1px solid #202124;
 }
 
 .coin .rank {
@@ -124,15 +138,6 @@ p {
 
 .coin .title-logo-container .coin_logo {
     margin-right: 15px;
-}
-
-.rank,
-.mc,
-.price,
-.volume,
-.cs,
-.change {
-    font-size: 1.2rem;
 }
 
 .topmenu_buttons {
@@ -165,33 +170,34 @@ button:hover {
     display: flex;
     width: 80vw;
     margin: 4rem auto;
-    border-radius: 25px;
-    padding: 15px;
-    background-color: aliceblue;
+    border-radius: 4px;
+    padding: 20px;
+    background-color: #fff;
+    position: relative;
 }
 
-#luk button {
-    position: fixed;
-    top: 7.4vh;
-    right: 7.2vw;
-    background-color: white;
-    color: black;
+#luk {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    color: #202124;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 20px;
-    padding: 5px 10px;
+    font-size: 24px;
+    padding: 5px 12px;
     border-radius: 4px;
     cursor: pointer;
 }
 
 #popup img {
-    display: flex;
-    padding: 40px;
+    max-width: 148px;
+    max-height: 148px;
+    padding: 20px;
 }
 
-#popup p {
-    display: flex;
-    width: 35vw;
-    font-weight: bold;
+footer {
+    padding: 40px 0;
+    background-color: #159296;
 }

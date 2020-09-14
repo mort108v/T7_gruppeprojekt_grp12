@@ -16,51 +16,56 @@
             <div class="mont_logo">
                 <img src="logo/mont_500x500.svg" alt="Logo">
             </div>
-            <div class="topmenu_buttons">
-                <button class="sign_up valgt">Sign Up</button>
-                <button class="sign_up">Sign In</button>
-            </div>
             <div class="container">
-                <h1>Welcome to Mont</h1>
+                <h1>Welcome to Mønt</h1>
                 <h2>Cras vitae mattis lacus. Integer sit amet.</h2>
                 <p class="white-text">Lorem ipsum dolor sit amet, in eam odio amet, vix id nullam detracto, vidit vituperatoribus duo id. Affert detraxit voluptatum vis eu, inermis eloquentiam.</p>
+                <div class="topmenu_buttons">
+                    <button class="sign_up valgt">Sign Up</button>
+                    <button class="sign_up">Sign In</button>
+                </div>
             </div>
         </header>
     </section>
 
-    <section id="sort_coins">
-        <div class="container">
-            <button class="filter valgt" data-coin="all_coins">Coins by Rank</button>
-            <button class="filter" data-coin="name">Coins by Name</button>
-            <button class="filter" data-coin="value">Coins by Value</button>
-        </div>
-    </section>
-
-    <section class="coins-list">
-        <div class="container">
-            <h2>Top 100 cryptocurrencies</h2>
-            <div class="data-container"></div>
-        </div>
-
-    </section>
-
-    <section id="popup">
-        <article>
-            <div id="luk">
-                <button> x </button>
+    <main>
+        <section id="sort_coins">
+            <div class="container">
+                <button class="filter valgt" data-coin="all_coins">Coins by Rank</button>
+                <button class="filter" data-coin="name">Coins by Name</button>
+                <button class="filter" data-coin="value">Coins by Value</button>
             </div>
-            <img class="coin_logo" src="" alt="Coin">
-            <div>
-                <h3></h3>
-                <p class="rank"><span class="rank"></span></p>
-                <p>Marketcap: <span class="mc"></span></p>
-                <p>Value: <span class="value"></span></p>
-                <p>Volume (24h): <span class="volume"></span></p>
-                <p>Circulating Supply: <span class="cs"></span></p>
-                <p>Change (24h): <span class="change"></span></p>
+        </section>
+
+        <section class="coins-list">
+            <div class="container">
+                <h2 class="coins-list-headline green-text">Top 100 cryptocurrencies</h2>
+                <div class=""></div>
+                <div class="data-container"></div>
             </div>
-        </article>
-    </section>
+
+        </section>
+
+        <section id="popup">
+            <article>
+                <button id="luk">x</button>
+                <img class="coin_logo" src="" alt="Coin">
+                <div>
+                    <h3></h3>
+                    <p class="rank"><span class="rank"></span></p>
+                    <p>Marketcap: <span class="mc"></span></p>
+                    <p>Value: <span class="value"></span></p>
+                    <p>Volume (24h): <span class="volume"></span></p>
+                    <p>Circulating Supply: <span class="cs"></span></p>
+                    <p>Change (24h): <span class="change"></span></p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"></div>
+    </footer>
 
     <template>
         <article class="coin">
