@@ -53,10 +53,8 @@ img {
 }
 
 .data-container {
-    display: flex;
-    flex-direction: column;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+/*    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));*/
     grid-gap: 20px;
     padding: 20px;
     max-width: 1200px;
@@ -69,7 +67,7 @@ img {
 
 .coin {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     text-align: center;
     background-color: #fff;
     border-radius: 2px;
