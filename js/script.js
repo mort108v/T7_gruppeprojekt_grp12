@@ -85,11 +85,10 @@ function vis() {
 
 document.querySelector("#luk").addEventListener("click", () => {
     parameters.delete("id");
-
     history.pushState(null, null, websiteURL);
-
     popup.style.display = "none";
 });
+
 /*Select #luk button ID - listen for Click and give it style = display none*/
 document.querySelector("#luk").addEventListener("click", () => popup.style.display = "none");
 
@@ -131,7 +130,7 @@ function filterBTNs() {
     document.querySelector("h1").textContent = this.textContent;
     document.querySelectorAll(".filter").forEach((btn) => {
         btn.classList.remove("valgt");
-    })
+    });
     this.classList.add("valgt");
     vis();
 }

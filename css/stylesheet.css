@@ -1,161 +1,163 @@
-        * {
-            box-sizing: border-box;
-        }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        body {
-            margin: 0;
-            background-color: #e6e6e6;
-        }
+body {
+    margin: 0;
+    background-color: #e6e6e6;
+}
 
-        header {
-            padding: 15px;
-            margin: 0 auto;
-        }
+header {
+    padding: 15px;
+    margin: 0 auto;
+}
 
-        #splash {
-            margin: 0 auto;
-            width: 100vw;
-            height: 50vh;
-            background-color: #089296;
-            background-size: cover;
-            background-image: url();
-            padding-bottom: 20px;
-        }
+button {
+    cursor: pointer;
+}
 
-        #splash img {
-            position: relative;
-            width: 10vw;
-            padding: 20px;
-        }
+#splash {
+    margin: 0 auto;
+    width: 100vw;
+    height: 50vh;
+    background-color: #089296;
+    background-size: cover;
+    background-image: url();
+    padding-bottom: 20px;
+}
 
-        .data-container img {
-            max-width: 100%;
-            display: block;
-            width: 32px;
-            height: 32px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 30px;
-        }
+#splash img {
+    position: relative;
+    width: 10vw;
+    padding: 20px;
+}
 
-        .data-container {
-            display: flex;
-            flex-direction: column;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            grid-gap: 20px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+.data-container img {
+    max-width: 100%;
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
 
-        .data-container h3 {
-            padding: 0 15px 0 15px;
-        }
+.data-container {
+    display: flex;
+    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-        .coin {
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-            background-color: #fff;
-            border-radius: 2px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-        }
+.data-container h3 {
+    padding: 0 15px 0 15px;
+}
 
-        h3 {
-            font-size: 2rem;
-            font-weight: 800;
-            font-family: sans-serif;
-        }
+.coin {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    cursor: pointer;
+}
 
-        .rank,
-        .mc,
-        .price,
-        .volume,
-        .cs,
-        .change {
-            font-size: 1.2rem;
-            font-family: sans-serif;
-        }
+h3 {
+    font-size: 2rem;
+    font-weight: 800;
+    font-family: sans-serif;
+}
 
-        .topmenu_buttons {
-            justify-content: flex-end;
-            align-content: flex-end;
-        }
+.rank,
+.mc,
+.price,
+.volume,
+.cs,
+.change {
+    font-size: 1.2rem;
+    font-family: sans-serif;
+}
 
-        button {
-            background-color: #089296;
-            border-radius: 5px;
-            padding: 5px;
-            color: #fff;
-            border: 2px;
-            border-color: #fff;
-        }
+.topmenu_buttons {
+    justify-content: flex-end;
+    align-content: flex-end;
+}
 
-        button:hover {
-            background-color: #fff;
-            color: #089296;
-        }
+button {
+    background-color: #089296;
+    border-radius: 5px;
+    padding: 5px;
+    color: #fff;
+    border: 2px;
+    border-color: #fff;
+}
 
-        .valgt {
-            background-color: #fff;
-            color: #089296;
-        }
+button:hover {
+    background-color: #fff;
+    color: #089296;
+}
 
-        #popup {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: rgba(0, 0, 0, .8);
-            overflow: scroll;
-            display: none;
-        }
+.valgt {
+    background-color: #fff;
+    color: #089296;
+}
 
-        #popup article {
-            display: flex;
-            width: 80vw;
-            margin: 4rem auto;
-            border-radius: 25px;
-            padding: 15px;
-            background-color: aliceblue;
-        }
+#popup {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .8);
+    overflow: scroll;
+    display: none;
+}
 
-        #popup span {
-            background-color: lightgray;
-        }
+#popup article {
+    display: flex;
+    width: 80vw;
+    margin: 4rem auto;
+    border-radius: 25px;
+    padding: 15px;
+    background-color: aliceblue;
+}
 
-        #luk button {
-            position: fixed;
-            top: 7.4vh;
-            right: 7.2vw;
-            background-color: white;
-            color: black;
-            text-align: center;
-            text-decoration: none;
-            border: 2;
-            display: inline-block;
-            font-size: 20px;
-            padding: 5px 10px;
-            border-radius: 30%;
-            cursor: pointer;
-        }
+#luk button {
+    position: fixed;
+    top: 7.4vh;
+    right: 7.2vw;
+    background-color: white;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    padding: 5px 10px;
+    border-radius: 30%;
+    cursor: pointer;
+}
 
-        #popup img {
-            display: flex;
-            width: 50%;
-            margin-left: 0em;
-            padding: 40px;
-        }
+#popup img {
+    display: flex;
+    width: 50%;
+    margin-left: 0em;
+    padding: 40px;
+}
 
-        span {
-            font-weight: normal;
-        }
+span {
+    font-weight: normal;
+}
 
-        #popup p {
-            display: flex;
-            width: 35vw;
-            font-family: fantasy;
-            font-weight: bold;
-        }
+#popup p {
+    display: flex;
+    width: 35vw;
+    font-family: fantasy;
+    font-weight: bold;
+}
