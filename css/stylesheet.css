@@ -134,11 +134,13 @@ p {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0 15px;
+    padding-left: 10px;
+    padding-right: 30px;
     flex-grow: 1;
     flex-basis: 0;
-
 }
+
+
 
 .coin .title-logo-container .coin_logo {
     margin-right: 15px;
@@ -146,13 +148,20 @@ p {
 
 .coin .value {
     padding-right: 20px;
+    flex-grow: 1;
+    flex-basis: 0;
 }
 
-.coin .volume.is-positive {
+.coin .change {
+    flex-basis: 90px;
+    text-align: right;
+}
+
+.coin .change.is-positive {
     color: green;
 }
 
-.coin .volume.is-negative {
+.coin .change.is-negative {
     color: red;
 }
 
