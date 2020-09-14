@@ -59,11 +59,17 @@ function vis() {
 
             /*Klon used to input data from JSON into given Classes*/
             klon.querySelector(".rank").textContent = coin.gsx$datacmcrank.$t;
-            klon.querySelector(".coin_logo").src = `${imageUrl}${coin.gsx$dataid.$t}.png`;            klon.querySelector(".coin_logo").alt = coin.gsx$dataname.$t;
+            klon.querySelector(".coin_logo").src = `${imageUrl}${coin.gsx$dataid.$t}.png`;
+            klon.querySelector(".coin_logo").alt = coin.gsx$dataname.$t;
             klon.querySelector("h3").textContent = coin.gsx$dataname.$t;
 
             let usdPrice = coin.gsx$dataquoteusdprice.$t.replace(",", ".");
-            usdPrice = parseFloat(usdPrice).toFixed(2);
+            if (usdPrice < 0.009) {
+                usdPrice = parseFloat(usdPrice).toFixed(6)
+            } else {
+                usdPrice = parseFloat(usdPrice).toFixed(2);
+            }
+
             klon.querySelector(".value").textContent = "$" + usdPrice;
 
             let percentChange24H = coin.gsx$dataquoteusdpercentchange24h.$t.replace(",", ".");
@@ -116,12 +122,21 @@ function visDetaljer(coin) {
     popup.querySelector(".rank").textContent = "Rank: " + coin.gsx$datacmcrank.$t;
     popup.querySelector("h3").textContent = coin.gsx$dataname.$t;
     popup.querySelector(".coin_logo").src = `${imageUrl}${coin.gsx$dataid.$t}.png`;
-    popup.querySelector(".value").textContent = " $ " +
+    popup.querySelector(".value").textContent = "$" +
         coin.gsx$dataquoteusdprice.$t;
     popup.querySelector(".cs").textContent = " " + coin.gsx$datacirculatingsupply.$t;
-    popup.querySelector(".mc").textContent = " $ " + coin.gsx$dataquoteusdmarketcap.$t;
-    popup.querySelector(".volume").textContent = " $ " + coin.gsx$dataquoteusdvolume24h.$t;
-    popup.querySelector(".change").textContent = " % " + coin.gsx$dataquoteusdpercentchange24h.$t;
+    popup.querySelector(".mc").textContent = "$" + coin.gsx$dataquoteusdmarketcap.$t;
+    popup.querySelector(".volume").textContent = "$" + coin.gsx$dataquoteusdvolume24h.$t;
+
+    let percentChange24H = coin.gsx$dataquoteusdpercentchange24h.$t.replace(",", ".");
+    percentChange24H = parseFloat(percentChange24H).toFixed(2);
+
+    if (percentChange24H >= 0) {
+        popup.querySelector(".change").classList.add("is-positive");
+    } else {
+        popup.querySelector(".change").classList.add("is-negative");
+    }
+    popup.querySelector(".change").textContent = `${percentChange24H}%`;
 
     parameters.set("id", coin.gsx$dataid.$t);
     console.log(coin.gsx$dataid.$t)

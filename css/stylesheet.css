@@ -157,10 +157,12 @@ p {
     text-align: right;
 }
 
+#popup .change.is-positive,
 .coin .change.is-positive {
     color: green;
 }
 
+#popup .change.is.negative,
 .coin .change.is-negative {
     color: red;
 }
