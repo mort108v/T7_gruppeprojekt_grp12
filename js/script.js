@@ -62,9 +62,21 @@ function vis() {
             klon.querySelector(".coin_logo").src = `${imageUrl}${coin.gsx$dataid.$t}.png`;            klon.querySelector(".coin_logo").alt = coin.gsx$dataname.$t;
             klon.querySelector("h3").textContent = coin.gsx$dataname.$t;
             klon.querySelector(".value").textContent = "$" + coin.gsx$dataquoteusdprice.$t;
+            let percentChange24H = coin.gsx$dataquoteusdpercentchange24h.$t.replace(",", ".");
+            console.log(percentChange24H);
+            percentChange24H = parseFloat(percentChange24H).toFixed(1);
+
+            if (percentChange24H >= 0) {
+                klon.querySelector(".volume").classList.add("is-positive");
+            } else {
+                klon.querySelector(".volume").classList.add("is-negative");
+            }
+
+            klon.querySelector(".volume").textContent = `${percentChange24H}%`;
 
             /*Listen for Click and send to detailed info article function*/
             klon.querySelector("article").addEventListener("click", () => visDetaljer(coin));
+
 
             /*Append child to ListPointer forward Klon Constant along*/
             listPointer.appendChild(klon);
