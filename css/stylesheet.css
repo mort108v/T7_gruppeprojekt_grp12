@@ -206,6 +206,8 @@ button:hover {
     margin: 4rem auto;
     border-radius: 4px;
     padding: 20px;
+    background-image: url(/bgr/blockchain20pro.png);
+    background-size: contain;
     background-color: #fff;
     position: relative;
 }
