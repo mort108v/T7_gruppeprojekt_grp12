@@ -11,7 +11,11 @@ let fb_share = document.querySelector("#fb_share");
 
 fb_share.href = 'http://www.facebook.com/share.php?u=' + encodeURIComponent(location.href);
 
+let buttonActive = document.querySelector("button.filter.valgt");
+console.log(buttonActive);
+
 // Website url parameters
+
 let websiteURL = `${location.protocol}//${location.host}${location.pathname}`;
 
 const queryString = window.location.search;
@@ -40,6 +44,7 @@ async function loadJSON() {
 }
 
 function vis() {
+    console.log("vis funktion");
 
     /*Set Constant Selector = templatePointer*/
     const templatePointer = document.querySelector("template");
@@ -48,51 +53,109 @@ function vis() {
     /*Clear pointer inner HTML*/
     listPointer.innerHTML = "";
 
+    /*Set condition to lowercase if "All Coins" filter is chosen*/
+    if (filter == "name") {
+
+        console.log(filter);
+        if (buttonActive.classList.contains("is-clicked")) {
+            console.log("Descending");
+            json.feed.entry.reverse();
+            buttonActive.classList.remove("is-clicked");
+        } else {
+            buttonActive.classList.add("is-clicked");
+            console.log("Ascending");
+            json.feed.entry.sort(function (a, b) {
+                var nameA = a.gsx$dataname.$t.toUpperCase(); // ignore upper and lowercase
+                var nameB = b.gsx$dataname.$t.toUpperCase(); // ignore upper and lowercase
+                if (nameA < nameB) {
+                    return -1;
+                }
+                if (nameA > nameB) {
+                    return 1;
+                }
+
+                // names must be equal
+                return 0;
+            });
+        }
+    } else if (filter == "price") {
+        console.log(filter);
+
+        if (buttonActive.classList.contains("is-clicked")) {
+            console.log("Descending");
+            json.feed.entry.reverse();
+            buttonActive.classList.remove("is-clicked");
+        } else {
+            buttonActive.classList.add("is-clicked");
+            console.log("Ascending");
+            json.feed.entry.sort(function (a, b) {
+                var numberA = a.gsx$dataquoteusdprice.$t.replace(",", ".");
+                var numberB = b.gsx$dataquoteusdprice.$t.replace(",", ".");
+
+                numberA = parseFloat(numberA);
+                numberB = parseFloat(numberB);
+
+                return numberB - numberA;
+
+            });
+        }
+    } else {
+        console.log(filter);
+
+        if (buttonActive.classList.contains("is-clicked")) {
+            console.log("Descending");
+            json.feed.entry.reverse();
+            buttonActive.classList.remove("is-clicked");
+        } else {
+            buttonActive.classList.add("is-clicked");
+            console.log("Ascending");
+            json.feed.entry.sort(function (a, b) {
+                return parseInt(a.gsx$datacmcrank.$t) - parseInt(b.gsx$datacmcrank.$t);
+            });
+        }
+    }
+
     //Run through array of coins
     json.feed.entry.forEach(coin => {
 
         /*Set image URL for all coin Logos*/
         let imageUrl = "https://s2.coinmarketcap.com/static/img/coins/64x64/";
 
-        /*Set condition to lowercase if "All Coins" filter is chosen*/
-        if (filter == "all_coins" || filter == coin.gsx$all_coins.$t.toLowerCase()) {
+        /*Set Constant Klon to use in Template*/
+        const klon = temp.cloneNode(true).content;
 
-            /*Set Constant Klon to use in Template*/
-            const klon = temp.cloneNode(true).content;
+        /*Klon used to input data from JSON into given Classes*/
+        klon.querySelector(".rank").textContent = coin.gsx$datacmcrank.$t;
+        klon.querySelector(".coin_logo").src = `${imageUrl}${coin.gsx$dataid.$t}.png`;
+        klon.querySelector(".coin_logo").alt = coin.gsx$dataname.$t;
+        klon.querySelector("h3").textContent = coin.gsx$dataname.$t;
 
-            /*Klon used to input data from JSON into given Classes*/
-            klon.querySelector(".rank").textContent = coin.gsx$datacmcrank.$t;
-            klon.querySelector(".coin_logo").src = `${imageUrl}${coin.gsx$dataid.$t}.png`;
-            klon.querySelector(".coin_logo").alt = coin.gsx$dataname.$t;
-            klon.querySelector("h3").textContent = coin.gsx$dataname.$t;
+        let usdPrice = coin.gsx$dataquoteusdprice.$t.replace(",", ".");
 
-            let usdPrice = coin.gsx$dataquoteusdprice.$t.replace(",", ".");
-            if (usdPrice < 0.009) {
-                usdPrice = parseFloat(usdPrice).toFixed(6)
-            } else {
-                usdPrice = parseFloat(usdPrice).toFixed(2);
-            }
-
-            klon.querySelector(".value").textContent = "$" + usdPrice;
-
-            let percentChange24H = coin.gsx$dataquoteusdpercentchange24h.$t.replace(",", ".");
-            percentChange24H = parseFloat(percentChange24H).toFixed(2);
-
-            if (percentChange24H >= 0) {
-                klon.querySelector(".change").classList.add("is-positive");
-            } else {
-                klon.querySelector(".change").classList.add("is-negative");
-            }
-
-            klon.querySelector(".change").textContent = `${percentChange24H}%`;
-
-            /*Listen for Click and send to detailed info article function*/
-            klon.querySelector("article").addEventListener("click", () => visDetaljer(coin));
-
-
-            /*Append child to ListPointer forward Klon Constant along*/
-            listPointer.appendChild(klon);
+        if (usdPrice < 0.009) {
+            usdPrice = parseFloat(usdPrice).toFixed(6);
+        } else {
+            usdPrice = parseFloat(usdPrice).toFixed(2);
         }
+
+        klon.querySelector(".value").textContent = "$" + usdPrice;
+
+        let percentChange24H = coin.gsx$dataquoteusdpercentchange24h.$t.replace(",", ".");
+        percentChange24H = parseFloat(percentChange24H).toFixed(2);
+
+        if (percentChange24H >= 0) {
+            klon.querySelector(".change").classList.add("is-positive");
+        } else {
+            klon.querySelector(".change").classList.add("is-negative");
+        }
+
+        klon.querySelector(".change").textContent = `${percentChange24H}%`;
+
+        /*Listen for Click and send to detailed info article function*/
+        klon.querySelector("article").addEventListener("click", () => visDetaljer(coin));
+
+        /*Append child to ListPointer forward Klon Constant along*/
+        listPointer.appendChild(klon);
     });
 
     if (parameters.get("id") === null) {
@@ -101,7 +164,7 @@ function vis() {
         let idParam = parameters.get("id");
 
         let thisCoin = json.feed.entry.find(x => x.gsx$dataid.$t === idParam);
-        console.log(thisCoin)
+        console.log(thisCoin);
         visDetaljer(thisCoin);
     }
 }
@@ -158,14 +221,19 @@ function addEventListenerToButtons() {
 
 /*Function to . . . . . Er der ik' noget off her???*/
 function filterBTNs() {
-    filter = this.dataset.coin;
-    //    document.querySelector("h1").textContent = this.textContent;
-    document.querySelectorAll(".filter").forEach((btn) => {
-        btn.classList.remove("valgt");
-    });
-    this.classList.add("valgt");
-    vis();
-}
+    console.log("filterBTNs!");
+    if (filter != this.dataset.coin) {
+        console.log("filter != to dataset");
+        filter = this.dataset.coin;
+        document.querySelectorAll(".filter").forEach((btn) => {
+            btn.classList.remove("valgt");
+            btn.classList.remove("is-clicked");
+        });
+    }
 
-/*Load async JSON function*/
-loadJSON();
+    this.classList.add("valgt");
+    buttonActive = document.querySelector("button.filter.valgt");
+
+    vis();
+    console.log(buttonActive);
+}
