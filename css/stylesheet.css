@@ -122,7 +122,12 @@ p {
     border-radius: 4px;
     cursor: pointer;
     padding: 15px;
-    border: 1px solid #202124;
+    border: 1px solid #159296;
+}
+
+.coin:hover {
+    cursor: pointer;
+        background-color: #159296;
 }
 
 .coin .rank {
@@ -233,6 +238,7 @@ button:hover {
     grid-gap: 20px;
     justify-content: center;
     align-content: center;
+    text-transform: uppercase;
 }
 
 .footer_menu div {
