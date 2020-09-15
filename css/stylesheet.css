@@ -1,8 +1,7 @@
 * {
     box-sizing: border-box;
-    margin: 0;
     padding: 0;
-
+    margin: 0;
 }
 
 button:focus, input:focus{
@@ -10,10 +9,10 @@ button:focus, input:focus{
 }
 
 body {
-    margin: 0;
     font-family: 'Lato', sans-serif;
     font-weight: 400;
     background-color: #fff;
+    margin: 0;
 }
 
 header {
@@ -81,7 +80,7 @@ p {
 
 #splash {
     margin: 0 auto;
-    width: 100vw;
+    width: 100%;
     height: 50vh;
     background-color: #089296;
     background-size: cover;

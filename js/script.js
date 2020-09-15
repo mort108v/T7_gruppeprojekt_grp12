@@ -15,7 +15,11 @@ let buttonActive = document.querySelector("button.filter.valgt");
 console.log(buttonActive);
 
 // Website url parameters
+ let fb_share = document.querySelector("#fb_share");
 
+    fb_share.href ='http://www.facebook.com/share.php?u=' + encodeURIComponent(location.href);
+
+// Website url parameters
 let websiteURL = `${location.protocol}//${location.host}${location.pathname}`;
 
 const queryString = window.location.search;
