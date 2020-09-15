@@ -5,6 +5,10 @@
 
 }
 
+button:focus, input:focus{
+    outline: none;
+}
+
 body {
     margin: 0;
     font-family: 'Lato', sans-serif;
