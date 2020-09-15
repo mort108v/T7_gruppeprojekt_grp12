@@ -180,7 +180,7 @@ p {
 button:hover {
     background-color: #fff;
     color: #089296;
-    border: solid 2px;
+    border: solid 2px #089296;
 }
 
 .valgt {
@@ -229,6 +229,14 @@ button:hover {
     max-width: 148px;
     max-height: 148px;
     padding: 20px;
+}
+
+#popup #fb_share {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 5px;
+    cursor: pointer;
 }
 
 .footer_menu {
