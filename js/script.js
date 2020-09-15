@@ -7,17 +7,13 @@ let valgt;
 /*Set constant selector for PopUp window*/
 const popup = document.querySelector("#popup");
 
+// Website url facebook share
 let fb_share = document.querySelector("#fb_share");
-
 fb_share.href = 'http://www.facebook.com/share.php?u=' + encodeURIComponent(location.href);
 
 let buttonActive = document.querySelector("button.filter.valgt");
 console.log(buttonActive);
 
-// Website url parameters
- let fb_share = document.querySelector("#fb_share");
-
-    fb_share.href ='http://www.facebook.com/share.php?u=' + encodeURIComponent(location.href);
 
 // Website url parameters
 let websiteURL = `${location.protocol}//${location.host}${location.pathname}`;
@@ -93,8 +89,8 @@ function vis() {
             buttonActive.classList.add("is-clicked");
             console.log("Ascending");
             json.feed.entry.sort(function (a, b) {
-                var numberA = a.gsx$dataquoteusdprice.$t.replace(",", ".");
-                var numberB = b.gsx$dataquoteusdprice.$t.replace(",", ".");
+                let numberA = a.gsx$dataquoteusdprice.$t.replace(",", ".");
+                let numberB = b.gsx$dataquoteusdprice.$t.replace(",", ".");
 
                 numberA = parseFloat(numberA);
                 numberB = parseFloat(numberB);
