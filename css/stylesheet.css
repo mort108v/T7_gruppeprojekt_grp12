@@ -224,6 +224,36 @@ button:hover {
     padding: 20px;
 }
 
+.footer_menu {
+    /*position: fixed;*/
+    margin: 0;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: 80px 80px 80px 80px;
+    grid-gap: 20px;
+    justify-content: center;
+    align-content: center;
+}
+
+.footer_menu div {
+    border: solid 1px #fff;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.footer_menu div:hover {
+    background-color: #fff;
+}
+
+.footer_menu img {
+    width: 100%;
+}
+
+.footer_menu h4 {
+    color: #000;
+}
+
 footer {
     padding: 40px 0;
     background-color: #159296;
