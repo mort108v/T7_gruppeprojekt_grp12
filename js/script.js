@@ -7,7 +7,7 @@ let valgt;
 /*Set constant selector for PopUp window*/
 const popup = document.querySelector("#popup");
 
-let buttonActive;
+let buttonActive = document.querySelector("button.filter.valgt");
 console.log(buttonActive);
 
 // Website url parameters
@@ -40,6 +40,7 @@ async function loadJSON() {
 }
 
 function vis() {
+    console.log("vis funktion");
 
     /*Set Constant Selector = templatePointer*/
     const templatePointer = document.querySelector("template");
@@ -52,10 +53,13 @@ function vis() {
     if (filter == "name") {
 
         console.log(filter);
-        if (buttonActive.hasClass("is-clicked")) {
+        if (buttonActive.classList.contains("is-clicked")) {
+            console.log("Descending");
             json.feed.entry.reverse();
+            buttonActive.classList.remove("is-clicked");
         } else {
             buttonActive.classList.add("is-clicked");
+            console.log("Ascending");
             json.feed.entry.sort(function (a, b) {
                 var nameA = a.gsx$dataname.$t.toUpperCase(); // ignore upper and lowercase
                 var nameB = b.gsx$dataname.$t.toUpperCase(); // ignore upper and lowercase
@@ -72,21 +76,39 @@ function vis() {
         }
     } else if (filter == "price") {
         console.log(filter);
-        json.feed.entry.sort(function (a, b) {
-            var numberA = a.gsx$dataquoteusdprice.$t.replace(",", ".");
-            var numberB = b.gsx$dataquoteusdprice.$t.replace(",", ".");
 
-            numberA = parseFloat(numberA);
-            numberB = parseFloat(numberB);
+        if (buttonActive.classList.contains("is-clicked")) {
+            console.log("Descending");
+            json.feed.entry.reverse();
+            buttonActive.classList.remove("is-clicked");
+        } else {
+            buttonActive.classList.add("is-clicked");
+            console.log("Ascending");
+            json.feed.entry.sort(function (a, b) {
+                var numberA = a.gsx$dataquoteusdprice.$t.replace(",", ".");
+                var numberB = b.gsx$dataquoteusdprice.$t.replace(",", ".");
 
-            return numberB - numberA;
+                numberA = parseFloat(numberA);
+                numberB = parseFloat(numberB);
 
-        });
+                return numberB - numberA;
+
+            });
+        }
     } else {
         console.log(filter);
-        json.feed.entry.sort(function (a, b) {
-            return parseInt(a.gsx$datacmcrank.$t) - parseInt(b.gsx$datacmcrank.$t);
-        });
+
+        if (buttonActive.classList.contains("is-clicked")) {
+            console.log("Descending");
+            json.feed.entry.reverse();
+            buttonActive.classList.remove("is-clicked");
+        } else {
+            buttonActive.classList.add("is-clicked");
+            console.log("Ascending");
+            json.feed.entry.sort(function (a, b) {
+                return parseInt(a.gsx$datacmcrank.$t) - parseInt(b.gsx$datacmcrank.$t);
+            });
+        }
     }
 
     //Run through array of coins
@@ -195,17 +217,19 @@ function addEventListenerToButtons() {
 
 /*Function to . . . . . Er der ik' noget off her???*/
 function filterBTNs() {
+    console.log("filterBTNs!");
+    if (filter != this.dataset.coin) {
+        console.log("filter != to dataset");
+        filter = this.dataset.coin;
+        document.querySelectorAll(".filter").forEach((btn) => {
+            btn.classList.remove("valgt");
+            btn.classList.remove("is-clicked");
+        });
+    }
 
-    filter = this.dataset.coin;
-    //    document.querySelector("h1").textContent = this.textContent;
-    document.querySelectorAll(".filter").forEach((btn) => {
-        btn.classList.remove("valgt");
-    });
     this.classList.add("valgt");
     buttonActive = document.querySelector("button.filter.valgt");
+
     vis();
     console.log(buttonActive);
 }
-
-/*Load async JSON function*/
-loadJSON();
