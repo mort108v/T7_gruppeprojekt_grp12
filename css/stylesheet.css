@@ -100,7 +100,7 @@ p {
 
 .data-container {
     display: grid;
-/*    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));*/
+    /*    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));*/
     grid-gap: 20px;
 }
 
@@ -127,7 +127,7 @@ p {
 
 .coin:hover {
     cursor: pointer;
-        background-color: #159296;
+    background-color: #159296;
 }
 
 .coin .rank {
@@ -180,11 +180,13 @@ p {
 button:hover {
     background-color: #fff;
     color: #089296;
+    border: solid 2px;
 }
 
 .valgt {
     background-color: #fff;
     color: #089296;
+    border: solid 2px #089296;
 }
 
 #popup {
@@ -237,12 +239,11 @@ button:hover {
     grid-template-columns: 80px 80px 80px 80px;
     grid-gap: 20px;
     justify-content: center;
-    align-content: center;
     text-transform: uppercase;
 }
 
 .footer_menu div {
-    border: solid 1px #fff;
+    border: solid 2px #fff;
     padding: 5px;
     text-align: center;
     border-radius: 5px;
