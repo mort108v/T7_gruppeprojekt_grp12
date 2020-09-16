@@ -21,26 +21,23 @@
                 <h2>Cras vitae mattis lacus. Integer sit amet.</h2>
                 <p class="white-text">Lorem ipsum dolor sit amet, in eam odio amet, vix id nullam detracto, vidit vituperatoribus duo id. Affert detraxit voluptatum vis eu, inermis eloquentiam.</p>
                 <div class="topmenu_buttons">
-                    <button class="sign_up valgt">Sign Up</button>
-                    <button class="sign_up">Sign In</button>
+                    <button class="button sign_up valgt">Sign Up</button>
+                    <button class="button sign_up">Sign In</button>
                 </div>
             </div>
         </header>
     </section>
 
     <main>
-        <section id="sort_coins">
-            <div class="container">
-                <button class="filter valgt" data-coin="all_coins">Rank</button>
-                <button class="filter" data-coin="name">Name</button>
-                <button class="filter" data-coin="price">Price</button>
-            </div>
-        </section>
-
         <section class="coins-list">
             <div class="container">
                 <h2 class="coins-list-headline green-text">Top 100 cryptocurrencies</h2>
-                <div class=""></div>
+                    <div id="sort_coins">
+                        <button class="rank filter valgt" data-coin="all_coins">Rank</button>
+                        <button class="title filter" data-coin="name">Name</button>
+                        <button class="value filter" data-coin="price">Price</button>
+                        <button class="change filter" data-coin="change">Change (24h)</button>
+                    </div>
                 <div class="data-container"></div>
             </div>
 
@@ -60,9 +57,8 @@
                     <p>Change (24h): <span class="change"></span></p>
                 </div>
                 <div class="fb">
-                    <a href="#" target="_blank" id="fb_share">
-                        <img alt="FB Share" src="icons/facebook-share-button.png"
-         width="90" height="40">
+                    <a href="#" id="fb_share">
+                        <img alt="FB Share" src="icons/facebook-share-button.png" width="90" height="40">
                     </a>
                 </div>
             </article>
