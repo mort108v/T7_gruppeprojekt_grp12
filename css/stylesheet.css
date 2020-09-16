@@ -68,6 +68,7 @@ p {
     font-size: 14px;
     display: inline-block;
     text-align: center;
+    cursor: pointer;
 }
 
 .white-text {
