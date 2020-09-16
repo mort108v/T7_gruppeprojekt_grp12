@@ -27,26 +27,6 @@ button.filter {
     text-align: left;
 }
 
-.button {
-    cursor: pointer;
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    text-transform: uppercase;
-    background-color: transparent;
-    border-radius: 5px;
-    padding: 10px 40px;
-    color: #3633A2;
-    border: 2px solid #fff;
-    border-color: #fff;
-}
-
-.button:hover {
-    background-color: #fff;
-    color: #089296;
-    border: solid 2px #089296;
-}
-
 img {
     max-width: 100%;
     display: block;
@@ -76,21 +56,20 @@ p {
     font-size: 16px;
 }
 
-<<<<<<< HEAD
-=======
-#splash h1 {
-    margin-top: 300px;
-    padding: 20px;
+.button {
+    text-decoration: none;
+    color: #3633A2;
+    background-color: #fff;
+    padding: 10px 40px;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    display: inline-block;
+    text-align: center;
 }
 
-#splash h2,
-#splash p {
-    padding: 20px;
-}
-
-/* */
-
->>>>>>> styling_af_splash
 .white-text {
     color: #fff;
 }
@@ -105,25 +84,73 @@ p {
 
 #splash {
     margin: 0 auto;
-<<<<<<< HEAD
     width: 100%;
-    min-height: 50vh;
+    min-height: 56.25vw;
     background-color: #089296;
-=======
-    width: 100vw;
-    height: 100vh;
     background-image: url("../splash/splashmont.png");
->>>>>>> styling_af_splash
     background-size: cover;
-    padding-bottom: 20px;
-
-
+    background-position: 40% 50%;
 }
 
-#splash img {
-    position: relative;
-    width: 100px;
-    padding: 10px;
+.topmenu_buttons {
+    display: none;
+}
+
+.topmenu_buttons button:first-child {
+    margin-right: 15px;
+}
+
+#splash .navigation-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.header-content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding-bottom: 120px;
+}
+
+
+#splash h1 {
+    margin-bottom: 20px;
+}
+
+#splash h2 {
+    margin-bottom: 5px;
+}
+
+#splash p {
+    margin-bottom: 30px;
+}
+
+.logo {
+    width: 160px;
+    margin-bottom: 30px;
+}
+
+.navigation {
+    padding: 0 15px;
+    display: none;
+}
+
+.navigation-list {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+.navigation-item {
+    padding: 15px 20px;
+}
+
+.navigation-link {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
 }
 
 #sort_coins {
@@ -143,17 +170,14 @@ p {
 .data-container {
     display: grid;
     /*    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));*/
-<<<<<<< HEAD
     grid-row: 20px;
-=======
     grid-gap: 20px;
->>>>>>> styling_af_splash
 }
 
 .container {
     max-width: 1200px;
     margin: 0px auto;
-    padding: 0 20px;
+    padding: 0 30px;
 }
 
 .coins-list-headline {
@@ -200,7 +224,7 @@ p {
     color: #fff;
 }
 
-#sort_coins .change{
+#sort_coins .change {
     flex-basis: 140px;
     text-align: right;
     font-weight: 700;
@@ -266,29 +290,9 @@ p {
     color: red;
 }
 
-.topmenu_buttons {
-    justify-content: flex-end;
-    align-content: flex-end;
-    padding: 20px;
-}
-
-<<<<<<< HEAD
-.valgt {
-    background-color: #fff;
-    color: #089296;
-    border: solid 2px #089296;
-=======
-button:hover {
-    background-color: #fff;
-    color: #089296;
-}
-
-
-
 .filter.valgt {
     background-color: #3633A2;
     color: #fff;
->>>>>>> styling_af_splash
 }
 
 #popup {
@@ -308,7 +312,7 @@ button:hover {
     margin: 4rem auto;
     border-radius: 4px;
     padding: 20px;
-/*    background-image: url(/bgr/blockchain20pro.png);
+    /*    background-image: url(/bgr/blockchain20pro.png);
     background-size: contain;*/
     background-color: #fff;
     position: relative;
@@ -335,7 +339,6 @@ button:hover {
     padding: 20px;
 }
 
-<<<<<<< HEAD
 #popup #fb_share {
     position: absolute;
     bottom: 0;
@@ -374,9 +377,51 @@ button:hover {
     color: #000;
 }
 
-=======
->>>>>>> styling_af_splash
-footer {
+.footer {
     padding: 40px 0;
     background-color: #3633A2;
+}
+
+.footer-logo-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.footer-logo {
+    width: 80px;
+}
+
+.footer-logo-text {
+    color: #fff;
+}
+
+@media (min-width: 840px) {
+    .navigation {
+        display: block;
+    }
+
+    #splash {
+        background-position: top left;
+    }
+
+    #splash .navigation-header {
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 120px;
+    }
+
+    .topmenu_buttons {
+        display: block;
+        margin-left: auto;
+    }
+
+    .logo {
+        width: 80px;
+        margin: 0 30px 0 0;
+    }
+
+    .header-content {
+        margin: 0;
+    }
 }

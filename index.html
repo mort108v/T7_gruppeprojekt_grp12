@@ -4,45 +4,58 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mont</title>
+    <title>Mønt</title>
     <link rel="stylesheet" href="css/stylesheet.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Quicksand:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <section id="splash">
-        <header>
-            <div class="mont_logo">
-                <img src="logo/mont_1000x1000%20copy.png" alt="Logo">
-            </div>
-            <div class="container">
-                <h1>Welcome to Mønt</h1>
-                <h2>Cras vitae mattis lacus. Integer sit amet.</h2>
-                <p class="white-text">Lorem ipsum dolor sit amet, in eam odio amet, vix id nullam detracto, vidit vituperatoribus duo id. Affert detraxit voluptatum vis eu, inermis eloquentiam.</p>
+    <header id="splash">
+
+        <div class="container">
+            <div class="navigation-header">
+                <img class="logo" src="logo/mont_1000x1000%20copy.png" alt="Mont">
+                <nav class="navigation">
+                    <ul class="navigation-list">
+                        <li class="navigation-item">
+                            <a class="navigation-link" href="#">Buy</a>
+                        </li>
+                        <li class="navigation-item">
+                            <a class="navigation-link" href="#">Trade</a>
+                        </li>
+                        <li class="navigation-item">
+                            <a class="navigation-link" href="#">Learn</a>
+                        </li>
+                        <li class="navigation-item">
+                            <a class="navigation-link" href="#">About</a>
+                        </li>
+                    </ul>
+                </nav>
                 <div class="topmenu_buttons">
                     <button class="button sign_up valgt">Sign Up</button>
                     <button class="button sign_up">Sign In</button>
                 </div>
             </div>
-        </header>
-    </section>
+            <div class="header-content">
+                <h1>Welcome to Mønt</h1>
+                <h2>Cras vitae mattis lacus. Integer sit amet.</h2>
+                <p class="white-text">Lorem ipsum dolor sit amet, in eam odio amet, vix id nullam detracto, vidit vituperatoribus duo id. Affert detraxit voluptatum vis eu, inermis eloquentiam.</p>
+                <a class="button" href="#">Learn more</a>
+            </div>
+        </div>
+    </header>
 
     <main>
         <section class="coins-list">
             <div class="container">
-<<<<<<< HEAD
-                <h2 class="coins-list-headline green-text">Top 100 cryptocurrencies</h2>
-                    <div id="sort_coins">
-                        <button class="rank filter valgt" data-coin="all_coins">Rank</button>
-                        <button class="title filter" data-coin="name">Name</button>
-                        <button class="value filter" data-coin="price">Price</button>
-                        <button class="change filter" data-coin="change">Change (24h)</button>
-                    </div>
-=======
                 <h2 class="coins-list-headline purple-text">Top 100 cryptocurrencies</h2>
-                <div class=""></div>
->>>>>>> styling_af_splash
+                <div id="sort_coins">
+                    <button class="rank filter valgt" data-coin="all_coins">Rank</button>
+                    <button class="title filter" data-coin="name">Name</button>
+                    <button class="value filter" data-coin="price">Price</button>
+                    <button class="change filter" data-coin="change">Change (24h)</button>
+                </div>
                 <div class="data-container"></div>
             </div>
 
@@ -70,7 +83,7 @@
         </section>
     </main>
 
-    <footer>
+    <!--    <footer>
         <div class="container">
             <div class="footer_menu">
                 <div class="valgt">
@@ -91,6 +104,25 @@
                 </div>
             </div>
         </div>
+    </footer>-->
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-column">
+                <div class="footer-logo-container">
+                    <img class="footer-logo" src="logo/mont_white.svg" alt="Mønt logo">
+                    <p class="footer-logo-text">Mønt</p>
+                </div>
+                <ul class="footer-list">
+                    <li class="footer-item">
+                        <p class="footer-text"></p>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-column"></div>
+            <div class="footer-column"></div>
+            <div class="footer-column"></div>
+        </div>
     </footer>
 
     <template>
@@ -106,4 +138,6 @@
     </template>
 
     <script src="js/script.js"></script>
-</body></html>
+</body>
+
+</html>
