@@ -33,10 +33,10 @@ button.filter {
     font-weight: 400;
     font-size: 14px;
     text-transform: uppercase;
-    background-color: #089296;
+    background-color: transparent;
     border-radius: 5px;
     padding: 10px 40px;
-    color: #fff;
+    color: #3633A2;
     border: 2px solid #fff;
     border-color: #fff;
 }
@@ -58,6 +58,8 @@ h1 {
     font-weight: 500;
     color: #fff;
     font-size: 56px;
+
+
 }
 
 h2 {
@@ -65,6 +67,7 @@ h2 {
     font-weight: 700;
     color: #fff;
     font-size: 24px;
+
 }
 
 p {
@@ -73,6 +76,21 @@ p {
     font-size: 16px;
 }
 
+<<<<<<< HEAD
+=======
+#splash h1 {
+    margin-top: 300px;
+    padding: 20px;
+}
+
+#splash h2,
+#splash p {
+    padding: 20px;
+}
+
+/* */
+
+>>>>>>> styling_af_splash
 .white-text {
     color: #fff;
 }
@@ -81,24 +99,31 @@ p {
     color: #202124;
 }
 
-.green-text {
-    color: #159296;
+.purple-text {
+    color: #3633A2;
 }
 
 #splash {
     margin: 0 auto;
+<<<<<<< HEAD
     width: 100%;
     min-height: 50vh;
     background-color: #089296;
+=======
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../splash/splashmont.png");
+>>>>>>> styling_af_splash
     background-size: cover;
-    background-image: url();
     padding-bottom: 20px;
+
+
 }
 
 #splash img {
     position: relative;
     width: 100px;
-    padding: 20px;
+    padding: 10px;
 }
 
 #sort_coins {
@@ -118,7 +143,11 @@ p {
 .data-container {
     display: grid;
     /*    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));*/
+<<<<<<< HEAD
     grid-row: 20px;
+=======
+    grid-gap: 20px;
+>>>>>>> styling_af_splash
 }
 
 .container {
@@ -240,12 +269,26 @@ p {
 .topmenu_buttons {
     justify-content: flex-end;
     align-content: flex-end;
+    padding: 20px;
 }
 
+<<<<<<< HEAD
 .valgt {
     background-color: #fff;
     color: #089296;
     border: solid 2px #089296;
+=======
+button:hover {
+    background-color: #fff;
+    color: #089296;
+}
+
+
+
+.filter.valgt {
+    background-color: #3633A2;
+    color: #fff;
+>>>>>>> styling_af_splash
 }
 
 #popup {
@@ -292,6 +335,7 @@ p {
     padding: 20px;
 }
 
+<<<<<<< HEAD
 #popup #fb_share {
     position: absolute;
     bottom: 0;
@@ -330,7 +374,9 @@ p {
     color: #000;
 }
 
+=======
+>>>>>>> styling_af_splash
 footer {
     padding: 40px 0;
-    background-color: #159296;
+    background-color: #3633A2;
 }
