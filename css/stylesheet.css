@@ -71,6 +71,24 @@ p {
     cursor: pointer;
 }
 
+.button:hover {
+    color: #fff;
+    background-color: #3633A2;
+    border-color: #3633A2;
+}
+
+.button-invert {
+    background-color: transparent;
+    color: #fff;
+}
+
+.button-invert:hover {
+    background-color: #fff;
+    border-color: #fff;
+    color: #3633A2;
+
+}
+
 .white-text {
     color: #fff;
 }
@@ -143,15 +161,18 @@ p {
     list-style: none;
 }
 
-.navigation-item {
-    padding: 15px 20px;
-}
-
 .navigation-link {
     text-decoration: none;
     color: #fff;
     font-weight: 700;
     font-size: 18px;
+    padding: 15px 20px;
+    border-bottom: 2px solid transparent;
+    transition: border 0.1s ease-in-out;
+}
+
+.navigation-link:hover {
+    border-color: #fff;
 }
 
 #sort_coins {
@@ -172,7 +193,6 @@ p {
     display: grid;
     /*    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));*/
     grid-row: 20px;
-    grid-gap: 20px;
 }
 
 .container {
@@ -190,7 +210,7 @@ p {
     flex-direction: row;
     align-items: center;
     border-radius: 4px;
-    background-color: #089296;
+    background-color: #e0b780;
 }
 
 #sort_coins button {
@@ -244,9 +264,14 @@ p {
     border-bottom: 1px solid #A6ADB4;
 }
 
+.coin:hover .change.is-positive,
+.coin:hover .change.is-negative{
+    color: #fff;
+}
+
 .coin:hover {
-    cursor: pointer;
-    background-color: #159296;
+    background-color: #788AE8;
+    color: #fff;
 }
 
 .coin .rank {
@@ -291,7 +316,17 @@ p {
     color: red;
 }
 
-.filter.valgt {
+#sort_coins .filter.valgt:first-child {
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+#sort_coins .filter.valgt:last-child {
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+#sort_coins .filter.valgt {
     background-color: #3633A2;
     color: #fff;
 }
