@@ -16,7 +16,7 @@ header {
 }
 
 main {
-    padding: 40px 0;
+    padding: 60px 0;
 }
 
 button.filter {
@@ -202,6 +202,7 @@ p {
 }
 
 .coins-list-headline {
+    font-size: 36px;
     margin-bottom: 20px;
 }
 
@@ -330,6 +331,18 @@ p {
     background-color: #3633A2;
     color: #fff;
 }
+
+/*#sort_coins .filter.valgt.is-clicked::after,
+#sort_coins .filter.valgt::after {
+    content: '';
+    height: 19px;
+    width: 19px;
+    background-color: #000;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 5px;
+
+}*/
 
 #popup {
     position: fixed;
