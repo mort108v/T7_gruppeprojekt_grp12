@@ -39,6 +39,16 @@ async function loadJSON() {
     addEventListenerToButtons();
     /*Call function*/
     vis();
+
+    if (parameters.get("id") === null) {
+        console.log("Vis side uden popup!")
+    } else {
+        let idParam = parameters.get("id");
+
+        let thisCoin = json.feed.entry.find(coin => coin.gsx$dataid.$t === idParam);
+        console.log(thisCoin);
+        visDetaljer(thisCoin);
+    }
 }
 
 function vis() {
@@ -97,6 +107,28 @@ function vis() {
 
             });
         }
+    } else if (filter == "change") {
+        console.log(filter);
+
+        if (buttonActive.classList.contains("is-clicked")) {
+            console.log("Descending");
+            json.feed.entry.reverse();
+            buttonActive.classList.remove("is-clicked");
+        } else {
+            buttonActive.classList.add("is-clicked");
+            console.log("Ascending");
+            json.feed.entry.sort(function (a, b) {
+                var numberA = a.gsx$dataquoteusdpercentchange24h.$t.replace(",", ".");
+                var numberB = b.gsx$dataquoteusdpercentchange24h.$t.replace(",", ".");
+
+                numberA = parseFloat(numberA);
+                numberB = parseFloat(numberB);
+
+                return numberB - numberA;
+
+            });
+        }
+
     } else {
         console.log(filter);
 
@@ -155,16 +187,6 @@ function vis() {
         /*Append child to ListPointer forward Klon Constant along*/
         listPointer.appendChild(klon);
     });
-
-    if (parameters.get("id") === null) {
-        console.log("Vis side uden popup!")
-    } else {
-        let idParam = parameters.get("id");
-
-        let thisCoin = json.feed.entry.find(x => x.gsx$dataid.$t === idParam);
-        console.log(thisCoin);
-        visDetaljer(thisCoin);
-    }
 }
 
 document.querySelector("#luk").addEventListener("click", () => {
@@ -186,6 +208,7 @@ function visDetaljer(coin) {
     popup.querySelector(".rank").textContent = "Rank: " + coin.gsx$datacmcrank.$t;
     popup.querySelector("h3").textContent = coin.gsx$dataname.$t;
     popup.querySelector(".coin_logo").src = `${imageUrl}${coin.gsx$dataid.$t}.png`;
+    popup.querySelector(".coin_logo").alt = coin.gsx$dataname.$t;
     popup.querySelector(".value").textContent = "$" +
         coin.gsx$dataquoteusdprice.$t;
     popup.querySelector(".cs").textContent = " " + coin.gsx$datacirculatingsupply.$t;
