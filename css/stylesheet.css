@@ -316,8 +316,7 @@ button:focus {
 }
 
 .coin .change {
-    flex-basis: 100px;
-    text-align: right;
+    flex-basis: 50px;
 }
 
 #datasymbol {
@@ -516,6 +515,21 @@ display: flex;
 @media (min-width: 600px) {
 #full-name {
 display: inline;
+}
+
+ @media (min-width: 600px) {
+.coin .change  {
+flex-basis: 80px;
+}
+
+      @media (min-width: 600px) {
+#sort_coins .title  {
+padding-right: 50px;
+}
+
+                @media (min-width: 600px) {
+#sort_coins .rank  {
+padding-right: 20px;
 }
 
     @media (min-width: 600px) {
