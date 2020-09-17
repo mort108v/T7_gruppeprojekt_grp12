@@ -413,8 +413,9 @@ button:focus {
 
 
 #popup img {
-    max-width: 148px;
-    max-height: 148px;
+    margin: 0 auto;
+    max-width: 100px;
+    max-height: 100px;
     padding: 20px;
 }
 
@@ -424,6 +425,23 @@ button:focus {
     right: 0;
     padding: 5px;
     cursor: pointer;
+}
+
+#popup h3 {
+    text-align: center;
+}
+
+#popup .change {
+    padding-right: 30px;
+}
+
+#popup p {
+display: flex;
+    flex-direction: row;
+}
+
+#popup span {
+    margin-left: auto;
 }
 
 /*-------- POPUP LUK KNAP ----------*/
@@ -441,6 +459,7 @@ button:focus {
     padding: 5px 12px;
     border-radius: 4px;
     cursor: pointer;
+    border: none;
 }
 
 /*-------- FACEBOOK SHARE KNAP ----------*/
@@ -554,6 +573,28 @@ button:focus {
 
 
 /*-------- MEDIA QUERIES ----------*/
+
+@media (min-width: 600px) {
+    #popup h3 {
+        text-align: left;
+    }
+    #popup .change {
+        padding-right: 0px;
+    }
+    #popup p {
+
+    }
+    #popup img {
+        margin-left: 5px;
+    max-width: 148px;
+    max-height: 148px;
+    }
+    #popup article div {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+}
 
 @media (min-width: 600px) {
     #full-name {
