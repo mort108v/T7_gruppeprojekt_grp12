@@ -289,7 +289,7 @@ button:focus {
 }
 
 .coin .rank {
-    flex-basis: 0px;
+    flex-basis: 25px;
     padding-left: 5px;
 }
 
@@ -321,6 +321,7 @@ button:focus {
 }
 
 #datasymbol {
+    flex-basis: 0px;
     padding-right: 5px;
 }
 
