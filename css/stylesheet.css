@@ -585,7 +585,7 @@ display: flex;
 
     }
     #popup img {
-        margin-left: 5px;
+    margin-left: 5px;
     max-width: 148px;
     max-height: 148px;
     }
@@ -593,6 +593,9 @@ display: flex;
         display: flex;
         flex-direction: column;
         margin: 0 auto;
+    }
+    #popup span {
+        padding-left: 45px;
     }
 }
 
