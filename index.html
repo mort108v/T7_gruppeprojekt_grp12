@@ -14,6 +14,7 @@
     <header id="splash">
 
         <div class="container">
+            <!-- Top content med logo, navigation og sign up + sign in knapper -->
             <div class="navigation-header">
                 <img class="logo" src="logo/mont_white.svg" alt="Mont">
                 <nav class="navigation">
@@ -51,17 +52,20 @@
         <section class="coins-list">
             <div class="container">
                 <h2 class="coins-list-headline purple-text">Top 100 cryptocurrencies</h2>
+
+                <!-- Filtrerings knapper med data attributer -->
                 <div id="sort_coins">
                     <button class="rank filter valgt" data-coin="all_coins">Rank</button>
                     <button class="title filter" data-coin="name">Name</button>
                     <button class="value filter" data-coin="price">Price</button>
                     <button class="change filter" data-coin="change">Change (24h)</button>
                 </div>
+                <!-- Tom container til alle kryptovalutaerne -->
                 <div class="data-container"></div>
             </div>
-
         </section>
 
+        <!-- Popup template hvor data indsættes fra den pågældende kryptovaluta der bliver klikket på i vores liste -->
         <section id="popup">
             <article>
                 <button id="luk">x</button>
@@ -185,6 +189,7 @@
         </div>
     </footer>
 
+    <!-- Indholdet af <template> tagget er html skabelon for de enkelte kryptovalutaer -->
     <template>
         <article class="coin">
             <p class="rank"></p>
