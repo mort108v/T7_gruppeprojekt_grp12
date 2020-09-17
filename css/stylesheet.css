@@ -1,3 +1,5 @@
+/*-------- MAIN STUFF ----------*/
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -19,13 +21,6 @@ main {
     padding: 60px 0;
 }
 
-button.filter {
-    background-color: transparent;
-    border: 0;
-    font-size: 16px;
-    font-family: 'Lato', sans-serif;
-    text-align: left;
-}
 
 img {
     max-width: 100%;
@@ -57,6 +52,16 @@ p {
 
 a {
     text-decoration: none;
+}
+
+/*-------- BUTTON STUFF ----------*/
+
+button.filter {
+    background-color: transparent;
+    border: 0;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    text-align: left;
 }
 
 button:active {
@@ -98,8 +103,17 @@ button:focus {
     background-color: #fff;
     border-color: #fff;
     color: #3633A2;
-
 }
+
+.topmenu_buttons {
+    display: none;
+}
+
+.topmenu_buttons button:first-child {
+    margin-right: 15px;
+}
+
+/*-------- FONT COLORS ----------*/
 
 .white-text {
     color: #fff;
@@ -113,6 +127,8 @@ button:focus {
     color: #3633A2;
 }
 
+/*-------- SPLASH ----------*/
+
 #splash {
     margin: 0 auto;
     width: 100%;
@@ -123,13 +139,6 @@ button:focus {
     background-position: 40% 50%;
 }
 
-.topmenu_buttons {
-    display: none;
-}
-
-.topmenu_buttons button:first-child {
-    margin-right: 15px;
-}
 
 #splash .navigation-header {
     display: flex;
@@ -137,13 +146,6 @@ button:focus {
     align-items: center;
     padding-top: 30px;
 }
-
-.header-content {
-    max-width: 600px;
-    margin: 0 auto;
-    padding-bottom: 120px;
-}
-
 
 #splash h1 {
     margin-bottom: 20px;
@@ -157,10 +159,22 @@ button:focus {
     margin-bottom: 30px;
 }
 
+/*-------- * ----------*/
+
+.header-content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding-bottom: 120px;
+}
+
+
+
 .logo {
     width: 160px;
     margin-bottom: 30px;
 }
+
+/*-------- NAVIGATION ----------*/
 
 .navigation {
     padding: 0 15px;
@@ -187,35 +201,13 @@ button:focus {
     border-color: #fff;
 }
 
+/*-------- SORT COINS ----------*/
+
 #sort_coins {
     display: flex;
     flex-direction: row;
     align-items: center;
     background-color: #089296;
-}
-
-.data-container img {
-    max-width: 100%;
-    display: block;
-    width: 32px;
-    height: 32px;
-}
-
-.data-container {
-    display: grid;
-    /*    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));*/
-    grid-row: 20px;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0px auto;
-    padding: 0 30px;
-}
-
-.coins-list-headline {
-    font-size: 36px;
-    margin-bottom: 20px;
 }
 
 #sort_coins {
@@ -268,6 +260,62 @@ button:focus {
     padding-left: 10px;
 }
 
+#sort_coins .filter.valgt:first-child {
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+#sort_coins .filter.valgt:last-child {
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+#sort_coins .filter.valgt {
+    background-color: #3633A2;
+    color: #fff;
+}
+
+/*#sort_coins .filter.valgt.is-clicked::after,
+#sort_coins .filter.valgt::after {
+    content: '';
+    height: 19px;
+    width: 19px;
+    background-color: #000;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 5px;
+
+}*/
+
+/*-------- DATA CONTAINER ----------*/
+
+.data-container img {
+    max-width: 100%;
+    display: block;
+    width: 32px;
+    height: 32px;
+}
+
+.data-container {
+    display: grid;
+    /*    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));*/
+    grid-row: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0px auto;
+    padding: 0 30px;
+}
+
+/*-------- COINS ----------*/
+
+.coins-list-headline {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+
 .coin {
     display: flex;
     flex-direction: row;
@@ -319,10 +367,14 @@ button:focus {
     flex-basis: 50px;
 }
 
+/*-------- * ----------*/
+
 #datasymbol {
     flex-basis: 0px;
     padding-right: 5px;
 }
+
+/*-------- POPUP ----------*/
 
 #popup .change.is-positive,
 .coin .change.is-positive {
@@ -333,33 +385,6 @@ button:focus {
 .coin .change.is-negative {
     color: red;
 }
-
-#sort_coins .filter.valgt:first-child {
-    border-bottom-left-radius: 4px;
-    border-top-left-radius: 4px;
-}
-
-#sort_coins .filter.valgt:last-child {
-    border-bottom-right-radius: 4px;
-    border-top-right-radius: 4px;
-}
-
-#sort_coins .filter.valgt {
-    background-color: #3633A2;
-    color: #fff;
-}
-
-/*#sort_coins .filter.valgt.is-clicked::after,
-#sort_coins .filter.valgt::after {
-    content: '';
-    height: 19px;
-    width: 19px;
-    background-color: #000;
-    display: inline-block;
-    vertical-align: top;
-    margin-left: 5px;
-
-}*/
 
 #popup {
     position: fixed;
@@ -383,20 +408,6 @@ button:focus {
     position: relative;
 }
 
-#luk {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: #fff;
-    color: #202124;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 24px;
-    padding: 5px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-}
 
 #popup img {
     max-width: 148px;
@@ -412,11 +423,33 @@ button:focus {
     cursor: pointer;
 }
 
+/*-------- POPUP LUK KNAP ----------*/
+
+#luk {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    color: #202124;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/*-------- FACEBOOK SHARE KNAP ----------*/
+
 #fb_share img {
     width: 40px;
     height: 40px;
     padding: 0;
 }
+
+/*-------- FOOTER MENU (IKKE BRUGT ENDNU) ----------*/
+
 /*.footer_menu {
     position: fixed;
     margin: 0;
@@ -446,6 +479,8 @@ button:focus {
 .footer_menu h4 {
     color: #000;
 }*/
+
+/*-------- FOOTER STUFF ----------*/
 
 .footer {
     padding: 100px 0 40px 0;
@@ -511,6 +546,9 @@ display: flex;
 #full-name {
     display: none;
 }
+
+
+/*-------- MEDIA QUERIES ----------*/
 
 @media (min-width: 600px) {
 #full-name {
