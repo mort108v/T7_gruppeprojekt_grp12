@@ -175,8 +175,10 @@ function vis() {
 
         if (percentChange24H >= 0) {
             klon.querySelector(".change").classList.add("is-positive");
-        } else {
+        } else if (percentChange24H < 0) {
             klon.querySelector(".change").classList.add("is-negative");
+        } else {
+            klon.querySelector(".change").classList.add("is-null");
         }
 
         klon.querySelector(".change").textContent = `${percentChange24H}%`;
