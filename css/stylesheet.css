@@ -586,8 +586,8 @@ display: flex;
     }
     #popup img {
     margin-left: 5px;
-    max-width: 148px;
-    max-height: 148px;
+    max-width: 200px;
+    max-height: 200px;
     }
     #popup article div {
         display: flex;
