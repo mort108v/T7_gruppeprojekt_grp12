@@ -47,13 +47,25 @@ h2 {
     font-weight: 700;
     color: #fff;
     font-size: 24px;
-
 }
 
 p {
     font-weight: 400;
     font-family: 'Lato', sans-serif;
     font-size: 16px;
+}
+
+A {
+    text-decoration: none;
+}
+
+button:active {
+outline: none;
+border: none;
+}
+
+button:focus {
+    outline:0;
 }
 
 .button {
@@ -396,8 +408,8 @@ p {
     cursor: pointer;
 }
 
-.footer_menu {
-    /*position: fixed;*/
+/*.footer_menu {
+    position: fixed;
     margin: 0;
     border-radius: 5px;
     display: grid;
@@ -424,10 +436,10 @@ p {
 
 .footer_menu h4 {
     color: #000;
-}
+}*/
 
 .footer {
-    padding: 100px 0 40px;
+    padding: 100px 0 40px 0;
     background-color: #3633A2;
 }
 
@@ -443,15 +455,19 @@ p {
 }
 
 .footer-column {
+/*
     margin: 0 auto;
+*/
     padding-bottom: 60px;
 }
 
 .footer-logo {
+        display: inline-flex;
     width: 80px;
 }
 
 .footer-logo-text {
+    display: inline-flex;
     color: #fff;
     font-size: 46px;
     font-family: 'Quicksand', sans-serif;
@@ -462,11 +478,17 @@ p {
 }
 
 .footer-item {
-    margin-bottom: 5px;
+    margin: 0 5px 0 0;
 }
 
 .footer-text {
     color: #fff;
+    padding: 7px;
+}
+
+.footer-copy {
+display: flex;
+    justify-content: center;
 }
 
 .footer-headline {
@@ -475,6 +497,20 @@ p {
     font-weight: 700;
     color: #fff;
     font-size: 24px;
+}
+
+#full-name {
+    display: none;
+}
+
+@media (min-width: 600px) {
+#full-name {
+display: inline;
+}
+
+    @media (min-width: 600px) {
+#datasymbol {
+display: none;
 }
 
 @media (min-width: 600px) {
