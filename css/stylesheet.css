@@ -289,7 +289,7 @@ button:focus {
 }
 
 .coin .rank {
-    flex-basis: 0px;
+    flex-basis: 25px;
     padding-left: 5px;
 }
 
@@ -321,6 +321,7 @@ button:focus {
 }
 
 #datasymbol {
+    flex-basis: 0px;
     padding-right: 5px;
 }
 
@@ -373,7 +374,6 @@ button:focus {
 }
 
 #popup article {
-    display: flex;
     width: 80vw;
     margin: 4rem auto;
     border-radius: 4px;
@@ -413,6 +413,11 @@ button:focus {
     cursor: pointer;
 }
 
+#fb_share img {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+}
 /*.footer_menu {
     position: fixed;
     margin: 0;
@@ -516,6 +521,11 @@ display: inline;
     @media (min-width: 600px) {
 #datasymbol {
 display: none;
+}
+
+     @media (min-width: 600px) {
+#popup article {
+display: flex;
 }
 
 @media (min-width: 600px) {
