@@ -237,7 +237,8 @@ function vis() {
         klon.querySelector(".rank").textContent = coin.gsx$datacmcrank.$t;
         klon.querySelector(".coin_logo").src = `${imageUrl}${coin.gsx$dataid.$t}.png`;
         klon.querySelector(".coin_logo").alt = coin.gsx$dataname.$t;
-        klon.querySelector("h3").textContent = coin.gsx$dataname.$t;
+        klon.querySelector("#full-name").textContent = coin.gsx$dataname.$t;
+        klon.querySelector("#datasymbol").textContent = coin.gsx$datasymbol.$t;
 
         // Our data numbers from sheets is in commas instead of dots, which is what javascript uses, to know what is a decimal, so we replace the commas with dots in our string
         let usdPrice = coin.gsx$dataquoteusdprice.$t.replace(",", ".");
@@ -262,13 +263,15 @@ function vis() {
 
 
         // The price got many decimals, so if the price is lower than 0.009, then we want to display six decimal and if it's a bigger number like 10.000, then we only want to display two decimals.
-        if (percentChange24H >= 0) {
+        if (percentChange24H > 0) {
             // Add is-positive class to the 24h hour price change in percent so it is green if the number is positive
             klon.querySelector(".change").classList.add("is-positive");
-
-        } else {
-            // Else add is-negative class if the number is negative
+        } else if (percentChange24H < 0) {
+            // Add is-negative class to the 24h hour price change in percent so it is red if the number is positive
             klon.querySelector(".change").classList.add("is-negative");
+        } else {
+            // Add is-null class to the 24h hour price change in percent if the number is zero
+            klon.querySelector(".change").classList.add("is-null");
         }
 
         // Display the 24h percent change in price on the screen
