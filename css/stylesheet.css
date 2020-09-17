@@ -646,10 +646,14 @@ display: flex;
         width: 50%;
     }
 
+
+
+    /* Start med først footer-column og tag herefter hver anden, så 1..3..5..*/
     .footer-column:nth-child(2n + 1) {
         padding-right: 30px;
     }
 
+    /* Start med anden footer-column og tag herefter hver anden, så 2..4..6..*/
     .footer-column:nth-child(2n + 2) {
         padding-left: 30px;
     }
