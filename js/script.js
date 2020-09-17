@@ -316,6 +316,8 @@ function visDetaljer(coin) {
 
     // Get the 24h percent price change. Our data numbers from sheets is in commas instead of dots, which is what javascript uses, to know what is a decimal, so we replace the commas with dots in our string
     let percentChange24H = coin.gsx$dataquoteusdpercentchange24h.$t.replace(",", ".");
+
+    // Then we convert the string to a number with decimals, and limits the number to 2 decimals.
     percentChange24H = parseFloat(percentChange24H).toFixed(2);
 
     // The price got many decimals, so if the price is lower than 0.009, then we want to display six decimal and if it's a bigger number like 10.000, then we only want to display two decimals.
