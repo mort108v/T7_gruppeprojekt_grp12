@@ -158,7 +158,8 @@ function vis() {
         klon.querySelector(".rank").textContent = coin.gsx$datacmcrank.$t;
         klon.querySelector(".coin_logo").src = `${imageUrl}${coin.gsx$dataid.$t}.png`;
         klon.querySelector(".coin_logo").alt = coin.gsx$dataname.$t;
-        klon.querySelector("h3").textContent = coin.gsx$dataname.$t;
+        klon.querySelector("#full-name").textContent = coin.gsx$dataname.$t;
+        klon.querySelector("#datasymbol").textContent = coin.gsx$datasymbol.$t;
 
         let usdPrice = coin.gsx$dataquoteusdprice.$t.replace(",", ".");
 
