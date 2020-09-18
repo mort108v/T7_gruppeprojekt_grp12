@@ -379,7 +379,7 @@ button:focus {
     color: green;
 }
 
-#popup .change.is.negative,
+#popup .change.is-negative,
 .coin .change.is-negative {
     color: red;
 }

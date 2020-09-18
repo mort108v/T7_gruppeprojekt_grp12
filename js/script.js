@@ -127,7 +127,7 @@ function vis() {
 
             });
         }
-    // Check if the button clicked is the price button via the filter variable
+        // Check if the button clicked is the price button via the filter variable
     } else if (filter == "price") {
         console.log(filter);
 
@@ -161,7 +161,7 @@ function vis() {
                 return numberB - numberA;
             });
         }
-    // Check if the button clicked is the change button via the filter variable
+        // Check if the button clicked is the change button via the filter variable
     } else if (filter == "change") {
         console.log(filter);
 
@@ -196,7 +196,7 @@ function vis() {
 
             });
         }
-    // else show all coins
+        // else show all coins
     } else {
         console.log(filter);
 
@@ -261,8 +261,7 @@ function vis() {
         // Then we convert the string to a number with decimals, and limits the number to 2 decimals.
         percentChange24H = parseFloat(percentChange24H).toFixed(2);
 
-
-        // The price got many decimals, so if the price is lower than 0.009, then we want to display six decimal and if it's a bigger number like 10.000, then we only want to display two decimals.
+        // Then we check if the percent change is higher, lower or equal to 0
         if (percentChange24H > 0) {
             // Add is-positive class to the 24h hour price change in percent so it is green if the number is positive
             klon.querySelector(".change").classList.add("is-positive");
@@ -300,6 +299,10 @@ document.querySelector("#luk").addEventListener("click", () => {
 function visDetaljer(coin) {
     console.log(coin);
 
+    popup.querySelector(".change").classList.remove("is-positive");
+    popup.querySelector(".change").classList.remove("is-negative");
+    popup.querySelector(".change").classList.remove("is-null");
+
     // Define where the coin images are stored
     let imageUrl = "https://s2.coinmarketcap.com/static/img/coins/128x128/";
 
@@ -320,12 +323,16 @@ function visDetaljer(coin) {
     // Then we convert the string to a number with decimals, and limits the number to 2 decimals.
     percentChange24H = parseFloat(percentChange24H).toFixed(2);
 
-    // The price got many decimals, so if the price is lower than 0.009, then we want to display six decimal and if it's a bigger number like 10.000, then we only want to display two decimals.
-    if (percentChange24H >= 0) {
+    // Then we check if the percent change is higher, lower or equal to 0
+    if (percentChange24H > 0) {
+        // Add is-positive class to the 24h hour price change in percent so it is green if the number is positive
         popup.querySelector(".change").classList.add("is-positive");
-    } else {
-        // Else add is-negative class if the number is negative
+    } else if (percentChange24H < 0) {
+        // Add is-negative class to the 24h hour price change in percent so it is red if the number is positive
         popup.querySelector(".change").classList.add("is-negative");
+    } else {
+        // Add is-null class to the 24h hour price change in percent if the number is zero
+        popup.querySelector(".change").classList.add("is-null");
     }
 
     // Display the 24h percent change in price on the screen
